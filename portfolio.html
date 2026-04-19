@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manikandan Mani | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+    background:radial-gradient(circle at 20% 20%, #1a1a2e, #0f2027 40%, #000000 100%);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* soft glowing effect */
+body::before{
+    content:"";
+    position:fixed;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:radial-gradient(circle, rgba(0,234,255,0.15), transparent 70%);
+    animation:glowMove 10s linear infinite;
+    z-index:-1;
+}
+
+/* animation */
+@keyframes glowMove{
+    0%{transform:translate(0,0);}
+    50%{transform:translate(50px,50px);}
+    100%{transform:translate(0,0);}
+}
+
+/* Container */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Navbar */
+header{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px;
+    background:rgba(255,255,255,0.05);
+}
+
+header h2{color:#00eaff;}
+
+nav a{
+    color:#fff;
+    margin:0 10px;
+    text-decoration:none;
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{font-size:2.5rem;}
+.hero span{color:#00eaff;}
+
+.hero button{
+    padding:10px 20px;
+    margin-top:15px;
+    border:none;
+    background:#00eaff;
+    color:#000;
+    border-radius:20px;
+}
+
+/* Social */
+.social a{
+    color:#00eaff;
+    margin:5px;
+    text-decoration:none;
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* About */
+.about{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.about img{
+    width:150px;
+    border-radius:50%;
+}
+
+/* Skills */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.skill{
+    background:rgba(255,255,255,0.1);
+    padding:10px;
+    border-radius:8px;
+    text-align:center;
+}
+
+/* PROJECTS FIXED 2x2 */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .projects{
+        grid-template-columns:1fr;
+    }
+}
+
+/* Project Card */
+.project{
+    background:rgba(255,255,255,0.1);
+    padding:15px;
+    border-radius:8px;
+    color:white;
+    transition:0.3s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.2);
+}
+
+/* FIX LINK COLOR */
+.project-link{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* STATUS */
+.status{
+    display:inline-block;
+    margin-top:10px;
+    padding:5px 10px;
+    border-radius:5px;
+    font-size:0.8rem;
+}
+
+.view{
+    background:#00eaff;
+    color:black;
+}
+
+.code{
+    background:#4caf50;
+    color:white;
+}
+
+.upcoming{
+    background:orange;
+    color:black;
+}
+
+/* Contact */
+.contact-form{
+    max-width:350px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:5px;
+}
+
+.contact-form button{
+    width:100%;
+    padding:10px;
+    background:#00eaff;
+    border:none;
+}
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+    outline:none;
+}
+
+.contact-form button{
+    width:100%;
+    padding:12px;
+    background:#00eaff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#00c2cc;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>Manikandan</h2>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="container">
+
+<!-- Hero -->
+<section class="hero">
+<h1>Hi, I'm <span>Manikandan Mani</span></h1>
+<p>Aspiring AIML & CLOUD ARCHITECT</p>
+
+<button onclick="document.getElementById('projects').scrollIntoView()">View Work</button>
+<br><br>
+<div class="social">
+<a href="RESUME (2).pdf">Resume</a>
+<a href="https://github.com/ManikandanMani4">GitHub</a>
+<a href="https://www.linkedin.com/in/manikandanmani456/">LinkedIn</a>
+</div>
+</section>
+
+<!-- About -->
+<section id="about" class="card">
+<div class="about">
+<img src="mani.png">
+<p>
+I am an Information Technology student with a strong interest in AI, Cloud Computing, and Web Development. I enjoy learning new technologies and building real-world projects that solve practical problems.
+
+I have worked on projects like study tracking systems, AI-based applications, and web platforms. I am currently improving my skills in Java, Python, and cloud technologies like AWS.
+
+My goal is to become a skilled AI and Cloud Architect and build scalable, intelligent systems in the future.
+</p>
+</div>
+</section>
+<br>
+<!-- Skills -->
+<section id="skills" class="card">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill">Java</div>
+<div class="skill">Python</div>
+<div class="skill">JavaScript</div>
+<div class="skill">HTML & CSS</div>
+<div class="skill">MySQL</div>
+<div class="skill">Machine Learning</div>
+<div class="skill">AWS, Azure, GCP</div>
+</div>
+</section>
+<br>
+<!-- Projects -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="projects">
+
+<a href="https://manikandanmani4.github.io/EducationGuide/login.html" target="_blank" class="project-link">
+<div class="project">
+<h3>Education Guide</h3>
+<p>Student learning platform</p>
+<span class="status view">View Project</span>
+</div>
+</a>
+
+<a href="https://github.com/ManikandanMani4/AI-Cadio-Project" target="_blank" class="project-link">
+<div class="project">
+<h3>AI Cardio</h3>
+<p>Heart disease prediction</p>
+<span class="status code">View Code</span>
+</div>
+</a>
+
+<div class="project">
+<h3>Agri Smart System</h3>
+<p>Agriculture monitoring</p>
+<span class="status upcoming">Coming Soon</span>
+</div>
+
+<div class="project">
+<h3>Secure Data Storage</h3>
+<p>Data management system</p>
+<span class="status upcoming">Coming Soon</span>
+</div>
+
+</div>
+</section>
+<br>
+<!-- Contact -->
+<section id="contact" class="card">
+<h2 style="text-align:center;margin-bottom:20px;">Send Email</h2>
+
+<div class="contact-form">
+<form action="https://formspree.io/f/xjgjrjrl" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+</div>
+
+</section>
+
+</div>
+
+<footer>
+<p>© 2025 Manikandan</p>
+</footer>
+
+</body>
+</html>
