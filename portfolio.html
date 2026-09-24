@@ -3,20 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Manikandan Mani | Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-    background:radial-gradient(circle at 20% 20%, #1a1a2e, #0f2027 40%, #000000 100%);
+    background:
+        radial-gradient(circle at 20% 20%, #1a1a2e, #0f2027 40%, #000000 100%);
     color:#fff;
     overflow-x:hidden;
 }
 
-/* soft glowing effect */
+/* Soft glowing background */
+
 body::before{
     content:"";
     position:fixed;
@@ -24,332 +41,1162 @@ body::before{
     left:-50%;
     width:200%;
     height:200%;
-    background:radial-gradient(circle, rgba(0,234,255,0.15), transparent 70%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,234,255,0.15),
+            transparent 70%
+        );
     animation:glowMove 10s linear infinite;
     z-index:-1;
 }
 
-/* animation */
 @keyframes glowMove{
-    0%{transform:translate(0,0);}
-    50%{transform:translate(50px,50px);}
-    100%{transform:translate(0,0);}
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(50px,50px);
+    }
+
+    100%{
+        transform:translate(0,0);
+    }
 }
 
-/* Container */
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     max-width:1100px;
     margin:auto;
     padding:20px;
 }
 
-/* Navbar */
+
+/* =========================
+   NAVBAR
+========================= */
+
 header{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+
     padding:15px 30px;
+
     background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(10px);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-header h2{color:#00eaff;}
+header h2{
+    color:#00eaff;
+}
 
 nav a{
     color:#fff;
     margin:0 10px;
     text-decoration:none;
+    transition:0.3s;
 }
 
-/* Hero */
+nav a:hover{
+    color:#00eaff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
     text-align:center;
-    padding:60px 20px;
+    padding:80px 20px;
 }
 
-.hero h1{font-size:2.5rem;}
-.hero span{color:#00eaff;}
+.hero h1{
+    font-size:2.8rem;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:#00eaff;
+}
+
+.hero p{
+    font-size:1.1rem;
+    color:#ccc;
+    margin-top:10px;
+}
 
 .hero button{
-    padding:10px 20px;
-    margin-top:15px;
+    padding:12px 25px;
+
+    margin-top:25px;
+
     border:none;
+
     background:#00eaff;
+
     color:#000;
-    border-radius:20px;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
-/* Social */
-.social a{
-    color:#00eaff;
-    margin:5px;
-    text-decoration:none;
+.hero button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,234,255,0.5);
 }
 
-/* Card */
-.card{
-    background:rgba(255,255,255,0.08);
-    padding:20px;
-    border-radius:10px;
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+
+.social{
     margin-top:20px;
 }
 
-/* About */
+.social a{
+    color:#00eaff;
+    margin:0 8px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.social a:hover{
+    color:#fff;
+}
+
+
+/* =========================
+   GENERAL CARD
+========================= */
+
+.card{
+    background:rgba(255,255,255,0.08);
+
+    padding:25px;
+
+    border-radius:15px;
+
+    margin-top:20px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+    margin-bottom:20px;
+    color:#00eaff;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
 .about{
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:30px;
 }
 
 .about img{
-    width:150px;
+    width:160px;
+    height:160px;
+
+    object-fit:cover;
+
     border-radius:50%;
+
+    border:3px solid #00eaff;
+
+    box-shadow:
+        0 0 20px rgba(0,234,255,0.3);
 }
 
-/* Skills */
+.about p{
+    line-height:1.8;
+    color:#ddd;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
 .skills{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(150px,1fr));
+
     gap:15px;
 }
 
 .skill{
-    background:rgba(255,255,255,0.1);
-    padding:10px;
-    border-radius:8px;
+    background:rgba(255,255,255,0.08);
+
+    padding:14px;
+
+    border-radius:10px;
+
     text-align:center;
-}
 
-/* PROJECTS FIXED 2x2 */
-.projects{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:20px;
-}
+    border:1px solid rgba(255,255,255,0.08);
 
-/* MOBILE */
-@media(max-width:768px){
-    .projects{
-        grid-template-columns:1fr;
-    }
-}
-
-/* Project Card */
-.project{
-    background:rgba(255,255,255,0.1);
-    padding:15px;
-    border-radius:8px;
-    color:white;
     transition:0.3s;
 }
 
-.project:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.2);
+.skill:hover{
+    transform:translateY(-4px);
+
+    background:rgba(0,234,255,0.12);
+
+    border-color:#00eaff;
 }
 
-/* FIX LINK COLOR */
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:20px;
+}
+
+
+/* =========================
+   PROJECT CARD
+========================= */
+
 .project-link{
     text-decoration:none;
     color:inherit;
 }
 
-/* STATUS */
-.status{
-    display:inline-block;
-    margin-top:10px;
-    padding:5px 10px;
-    border-radius:5px;
-    font-size:0.8rem;
+.project{
+
+    background:rgba(255,255,255,0.08);
+
+    padding:22px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.3s;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
 }
 
-.view{
-    background:#00eaff;
-    color:black;
+.project:hover{
+
+    transform:translateY(-7px);
+
+    background:rgba(255,255,255,0.14);
+
+    border-color:#00eaff;
+
+    box-shadow:
+        0 8px 25px rgba(0,234,255,0.12);
+}
+
+.project h3{
+    color:#00eaff;
+
+    margin-bottom:8px;
+
+    font-size:1.15rem;
+}
+
+.project p{
+    color:#ccc;
+
+    font-size:0.9rem;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+}
+
+
+/* Project number */
+
+.project-number{
+
+    font-size:0.75rem;
+
+    color:#888;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:0.75rem;
+
+    font-weight:500;
+
+    width:max-content;
 }
 
 .code{
-    background:#4caf50;
-    color:white;
+
+    background:#00eaff;
+
+    color:#000;
 }
 
-.upcoming{
-    background:orange;
-    color:black;
+.team{
+
+    background:#9c7cff;
+
+    color:#fff;
 }
 
-/* Contact */
+
+/* =========================
+   CONTACT
+========================= */
+
 .contact-form{
-    max-width:350px;
+
+    max-width:500px;
+
     margin:auto;
 }
 
 .contact-form input,
 .contact-form textarea{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border:none;
-    border-radius:5px;
-}
 
-.contact-form button{
     width:100%;
-    padding:10px;
-    background:#00eaff;
-    border:none;
-}
-.contact-form input,
-.contact-form textarea{
-    width:100%;
+
     padding:12px;
+
     margin:10px 0;
+
     border:none;
-    border-radius:6px;
+
+    border-radius:7px;
+
     outline:none;
+
+    background:rgba(255,255,255,0.9);
+
+    color:#000;
+}
+
+.contact-form textarea{
+
+    resize:vertical;
 }
 
 .contact-form button{
+
     width:100%;
+
     padding:12px;
+
     background:#00eaff;
+
     border:none;
-    border-radius:6px;
+
+    border-radius:7px;
+
     cursor:pointer;
+
     font-weight:bold;
+
     transition:0.3s;
 }
 
 .contact-form button:hover{
+
     background:#00c2cc;
+
+    transform:translateY(-2px);
 }
 
-/* Footer */
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
+
     text-align:center;
-    padding:15px;
+
+    padding:25px;
+
+    color:#aaa;
+
+    margin-top:30px;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    header{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        padding:15px;
+    }
+
+    nav{
+
+        display:flex;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    nav a{
+
+        margin:5px 8px;
+
+        font-size:0.9rem;
+    }
+
+    .hero{
+
+        padding:60px 15px;
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+    }
+
+    .about{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .about img{
+
+        width:130px;
+
+        height:130px;
+    }
+
+    .projects{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
 
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
-<h2>Manikandan</h2>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
+
+    <h2>Manikandan</h2>
+
+    <nav>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
 </header>
+
+
 
 <div class="container">
 
-<!-- Hero -->
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
-<h1>Hi, I'm <span>Manikandan Mani</span></h1>
-<p>Aspiring AIML & CLOUD ARCHITECT</p>
 
-<button onclick="document.getElementById('projects').scrollIntoView()">View Work</button>
-<br><br>
-<div class="social">
-<a href="RESUME (2).pdf">Resume</a>
-<a href="https://github.com/ManikandanMani4">GitHub</a>
-<a href="https://www.linkedin.com/in/manikandanmani456/">LinkedIn</a>
-</div>
+    <h1>
+        Hi, I'm
+        <span>Manikandan Mani</span>
+    </h1>
+
+    <p>
+        Aspiring AI/ML & Cloud Architect
+    </p>
+
+
+    <button
+        onclick="document.getElementById('projects').scrollIntoView()">
+
+        View My Projects
+
+    </button>
+
+
+    <div class="social">
+
+        <a href="RESUME (2).pdf" target="_blank">
+            Resume
+        </a>
+
+        <a
+            href="https://github.com/ManikandanMani4"
+            target="_blank">
+
+            GitHub
+
+        </a>
+
+        <a
+            href="https://www.linkedin.com/in/manikandanmani456/"
+            target="_blank">
+
+            LinkedIn
+
+        </a>
+
+    </div>
+
 </section>
 
-<!-- About -->
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about" class="card">
-<div class="about">
-<img src="mani.png">
-<p>
-I am an Information Technology student with a strong interest in AI, Cloud Computing, and Web Development. I enjoy learning new technologies and building real-world projects that solve practical problems.
 
-I have worked on projects like study tracking systems, AI-based applications, and web platforms. I am currently improving my skills in Java, Python, and cloud technologies like AWS.
+    <h2 class="section-title">
+        About Me
+    </h2>
 
-My goal is to become a skilled AI and Cloud Architect and build scalable, intelligent systems in the future.
-</p>
-</div>
+    <div class="about">
+
+        <img
+            src="mani.png"
+            alt="Manikandan Mani">
+
+        <p>
+
+            I am an Information Technology student with a strong
+            interest in Artificial Intelligence, Cloud Computing,
+            Software Development, and modern technologies.
+
+            <br><br>
+
+            I enjoy building real-world applications and exploring
+            technologies that can solve practical problems. I have
+            worked on projects involving AI, web development,
+            mobile applications, databases, and intelligent systems.
+
+            <br><br>
+
+            My goal is to continuously improve my technical skills
+            and become an AI and Cloud Architect capable of designing
+            scalable and intelligent solutions.
+
+        </p>
+
+    </div>
+
 </section>
+
+
+
 <br>
-<!-- Skills -->
+
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
 <section id="skills" class="card">
-<h2>Skills</h2>
-<div class="skills">
-<div class="skill">Java</div>
-<div class="skill">Python</div>
-<div class="skill">JavaScript</div>
-<div class="skill">HTML & CSS</div>
-<div class="skill">MySQL</div>
-<div class="skill">Machine Learning</div>
-<div class="skill">AWS, Azure, GCP</div>
-</div>
+
+    <h2 class="section-title">
+        Skills
+    </h2>
+
+    <div class="skills">
+
+        <div class="skill">Java</div>
+
+        <div class="skill">Python</div>
+
+        <div class="skill">JavaScript</div>
+
+        <div class="skill">HTML & CSS</div>
+
+        <div class="skill">Flutter</div>
+
+        <div class="skill">Node.js</div>
+
+        <div class="skill">Firebase</div>
+
+        <div class="skill">MySQL</div>
+
+        <div class="skill">Machine Learning</div>
+
+        <div class="skill">Artificial Intelligence</div>
+
+        <div class="skill">AWS</div>
+
+        <div class="skill">Git & GitHub</div>
+
+    </div>
+
 </section>
+
+
+
 <br>
-<!-- Projects -->
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
 <section id="projects">
-<h2>Projects</h2>
 
-<div class="projects">
+    <h2 class="section-title">
+        Projects
+    </h2>
 
-<a href="https://futurepath-career.web.app/" target="_blank" class="project-link">
-<div class="project">
-<h3>Education Guide</h3>
-<p>Student learning platform</p>
-<span class="status view">View Code</span>
-</div>
-</a>
 
-<a href="https://github.com/ManikandanMani4/AI-Cadio-Project" target="_blank" class="project-link">
-<div class="project">
-<h3>AI Cardio</h3>
-<p>Heart disease prediction</p>
-<span class="status code">View Code</span>
-</div>
-</a>
-<a href="https://github.com/smksnk18/AGRINEXUS_APP" target="_blank" class="project-link">
-<div class="project">
-<h3>Agri Smart System</h3>
-<p>Agriculture monitoring</p>
-<span class="status view">View Code</span>
-</div>
-</a>
+    <div class="projects">
 
-<div class="project">
-<h3>Secure Data Storage</h3>
-<p>Data management system</p>
-<span class="status upcoming">Coming Soon</span>
-</div>
 
-</div>
+        <!-- 01 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/ODOO_HACKTHON_PROJECT"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>
+                        Employee & HR Management Portal
+                    </h3>
+
+                    <p>
+                        A centralized HR management portal for
+                        managing employees, departments, roles,
+                        attendance, leave management, and HR
+                        operations.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 02 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/FuturePath_Career"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>
+                        FuturePath Career
+                    </h3>
+
+                    <p>
+                        AI-based career guidance platform that
+                        analyzes user skills and provides career
+                        recommendations and personalized guidance.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 03 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/SmartStock"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>
+                        SmartStock
+                    </h3>
+
+                    <p>
+                        Inventory management system designed to
+                        manage products, stock levels, and inventory
+                        operations efficiently.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 04 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/Agro_Tech"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 04
+                    </div>
+
+                    <h3>
+                        AgroTech
+                    </h3>
+
+                    <p>
+                        Smart agriculture platform providing
+                        agricultural services, farmer support,
+                        crop-related information, and market
+                        assistance.
+                    </p>
+
+                </div>
+
+                <span class="status team">
+                    Team Project
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 05 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/NL-SQL-Query-Builder"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 05
+                    </div>
+
+                    <h3>
+                        NL-SQL Query Builder
+                    </h3>
+
+                    <p>
+                        A system that converts natural language
+                        questions into SQL queries to simplify
+                        database interaction.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 06 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/Pega-Project-Movie_Ticket_Booking_Management"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 06
+                    </div>
+
+                    <h3>
+                        Movie Ticket Booking Management
+                    </h3>
+
+                    <p>
+                        Movie ticket booking and management system
+                        designed to handle movie information,
+                        bookings, and customer interactions.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 07 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/FutureVault"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 07
+                    </div>
+
+                    <h3>
+                        FutureVault
+                    </h3>
+
+                    <p>
+                        A digital platform designed for secure
+                        storage and management of important
+                        information and data.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 08 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/Smart-Agricultural-Market-Price-Platform"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 08
+                    </div>
+
+                    <h3>
+                        Smart Agricultural Market Price Platform
+                    </h3>
+
+                    <p>
+                        Agricultural market price platform designed
+                        to provide users with market-related
+                        information and price insights.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 09 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/Smart-Classroom-Student-Monitoring-Attendance-System"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 09
+                    </div>
+
+                    <h3>
+                        Smart Classroom Student Monitoring
+                        & Attendance System
+                    </h3>
+
+                    <p>
+                        Smart classroom solution for student
+                        monitoring and automated attendance using
+                        technology-assisted identification.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 10 -->
+
+        <a
+            href="https://github.com/ManikandanMani4/EducationGuide"
+            target="_blank"
+            class="project-link">
+
+            <div class="project">
+
+                <div>
+
+                    <div class="project-number">
+                        PROJECT 10
+                    </div>
+
+                    <h3>
+                        EducationGuide
+                    </h3>
+
+                    <p>
+                        Educational guidance platform designed to
+                        help students explore learning opportunities,
+                        educational resources, and academic pathways.
+                    </p>
+
+                </div>
+
+                <span class="status code">
+                    View Code
+                </span>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
 </section>
+
+
+
 <br>
-<!-- Contact -->
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section id="contact" class="card">
-<h2 style="text-align:center;margin-bottom:20px;">Send Email</h2>
 
-<div class="contact-form">
-<form action="https://formspree.io/f/xjgjrjrl" method="POST">
+    <h2
+        style="
+        text-align:center;
+        margin-bottom:20px;
+        color:#00eaff;
+        ">
 
-<input type="text" name="name" placeholder="Your Name" required>
+        Send Me a Message
 
-<input type="email" name="email" placeholder="Your Email" required>
+    </h2>
 
-<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-<button type="submit">Send Message</button>
+    <div class="contact-form">
 
-</form>
-</div>
+        <form
+            action="https://formspree.io/f/xjgjrjrl"
+            method="POST">
+
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required>
+
+
+            <textarea
+                name="message"
+                rows="5"
+                placeholder="Your Message"
+                required>
+            </textarea>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+
+        </form>
+
+    </div>
 
 </section>
 
+
 </div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-<p>© 2025 Manikandan</p>
+
+    <p>
+        © 2026 Manikandan Mani. All Rights Reserved.
+    </p>
+
 </footer>
+
 
 </body>
 </html>
