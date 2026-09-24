@@ -1,1290 +1,1941 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Manikandan V- AI/ML and Cloud Architect Portfolio"
-    >
+<meta charset="UTF-8">
 
-    <title>Manikandan V| AI/ML & Cloud Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+<meta
+name="description"
+content="Manikandan Mani | AI/ML & Cloud Architect Portfolio">
 
-    <style>
+<title>Manikandan Mani | Portfolio</title>
 
-        /* =====================================================
-           ROOT
-        ===================================================== */
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+rel="stylesheet">
 
-        :root {
-            --bg: #05070b;
-            --bg-secondary: #0a0f17;
-            --card: #0d131d;
-            --card-hover: #111a27;
+<style>
 
-            --primary: #00e5ff;
-            --primary-dark: #00a8bd;
+/* =========================================================
+   ROOT
+========================================================= */
 
-            --white: #ffffff;
-            --text: #d7dee8;
-            --muted: #8491a3;
+:root{
 
-            --border: rgba(255,255,255,0.08);
+    --bg:#02070d;
+    --bg2:#06111b;
+    --card:rgba(10,24,36,.72);
 
-            --success: #4ade80;
-            --purple: #a78bfa;
+    --cyan:#00eaff;
+    --cyan2:#24d8ff;
 
-            --max-width: 1180px;
-        }
+    --purple:#9d5cff;
+    --pink:#e85cff;
 
+    --green:#40e89a;
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+    --white:#ffffff;
+    --text:#d5e0eb;
+    --muted:#8091a2;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    --border:rgba(255,255,255,.09);
 
-        html {
-            scroll-behavior: smooth;
-        }
+    --max:1250px;
+}
 
-        body {
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--white);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* =========================================================
+   RESET
+========================================================= */
 
-        button,
-        input,
-        textarea {
-            font-family: inherit;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+html{
+    scroll-behavior:smooth;
+}
 
-        /* ====================================================
-           BACKGROUND
-        ===================================================== */
+body{
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
+    font-family:"Inter",sans-serif;
 
-            top: -200px;
-            right: -150px;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0,234,255,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(157,92,255,.10),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #02070d,
+            #04101a 50%,
+            #02070d
+        );
 
-            background: rgba(0,229,255,0.08);
+    color:var(--white);
 
-            filter: blur(100px);
+    overflow-x:hidden;
 
-            border-radius: 50%;
+    line-height:1.6;
+}
 
-            pointer-events: none;
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-            z-index: -2;
-        }
+button,
+input,
+textarea{
+    font-family:inherit;
+}
 
-        body::after {
-            content: "";
-            position: fixed;
 
-            width: 400px;
-            height: 400px;
+/* =========================================================
+   BACKGROUND ORBS
+========================================================= */
 
-            left: -200px;
-            bottom: -150px;
+.background-orb{
 
-            background: rgba(72,55,255,0.08);
+    position:fixed;
 
-            filter: blur(100px);
+    border-radius:50%;
 
-            border-radius: 50%;
+    filter:blur(70px);
 
-            pointer-events: none;
+    pointer-events:none;
 
-            z-index: -2;
-        }
+    z-index:-2;
 
+    opacity:.45;
+}
 
-        /* =====================================================
-           CONTAINER
-        ===================================================== */
+.orb1{
 
-        .container {
-            width: min(var(--max-width), calc(100% - 40px));
-            margin: auto;
-        }
+    width:300px;
+    height:300px;
 
+    background:rgba(0,234,255,.15);
 
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
+    top:5%;
+    left:-150px;
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+    animation:float1 8s ease-in-out infinite;
+}
 
-            background: rgba(5,7,11,0.82);
+.orb2{
 
-            backdrop-filter: blur(18px);
+    width:350px;
+    height:350px;
 
-            border-bottom: 1px solid var(--border);
-        }
+    background:rgba(157,92,255,.12);
 
-        .navbar {
-            height: 76px;
+    right:-180px;
+    top:40%;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    animation:float2 10s ease-in-out infinite;
+}
 
-        .logo {
-            font-family: "Space Grotesk", sans-serif;
+.orb3{
 
-            font-size: 1.4rem;
-            font-weight: 700;
+    width:250px;
+    height:250px;
 
-            color: var(--white);
-        }
+    background:rgba(0,234,255,.10);
 
-        .logo span {
-            color: var(--primary);
-        }
+    bottom:-100px;
+    left:35%;
+}
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+@keyframes float1{
 
-        nav a {
-            color: var(--muted);
+    0%,100%{
+        transform:translateY(0);
+    }
 
-            font-size: 0.9rem;
-            font-weight: 500;
+    50%{
+        transform:translateY(40px);
+    }
+}
 
-            transition: 0.3s;
-        }
+@keyframes float2{
 
-        nav a:hover,
-        nav a.active {
-            color: var(--primary);
-        }
+    0%,100%{
+        transform:translateY(0);
+    }
 
-        .menu-btn {
-            display: none;
+    50%{
+        transform:translateY(-50px);
+    }
+}
 
-            background: none;
-            border: none;
 
-            color: white;
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-            font-size: 1.6rem;
+.container{
 
-            cursor: pointer;
-        }
+    width:min(
+        var(--max),
+        calc(100% - 50px)
+    );
 
+    margin:auto;
+}
 
-        /* =====================================================
-           HERO
-        ===================================================== */
 
-        .hero {
-            min-height: calc(100vh - 76px);
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-            display: flex;
-            align-items: center;
+header{
 
-            padding: 90px 0;
-        }
+    position:fixed;
 
-        .hero-grid {
-            display: grid;
+    top:15px;
+    left:0;
+    right:0;
 
-            grid-template-columns: 1.2fr 0.8fr;
+    z-index:1000;
+}
 
-            gap: 70px;
+.navbar{
 
-            align-items: center;
-        }
+    height:64px;
 
-        .hero-badge {
-            display: inline-flex;
+    padding:0 18px;
 
-            align-items: center;
+    display:flex;
 
-            gap: 8px;
+    align-items:center;
 
-            padding: 7px 13px;
+    justify-content:space-between;
 
-            border: 1px solid rgba(0,229,255,0.25);
+    border:1px solid var(--border);
 
-            background: rgba(0,229,255,0.05);
+    border-radius:16px;
 
-            border-radius: 30px;
+    background:
+        rgba(5,16,27,.72);
 
-            color: var(--primary);
+    backdrop-filter:blur(20px);
 
-            font-size: 0.78rem;
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.25);
+}
 
-            margin-bottom: 25px;
-        }
+.logo{
 
-        .dot {
-            width: 7px;
-            height: 7px;
+    display:flex;
 
-            background: var(--success);
+    align-items:center;
 
-            border-radius: 50%;
+    gap:10px;
+}
 
-            box-shadow: 0 0 10px var(--success);
-        }
+.logo-circle{
 
-        .hero h1 {
-            font-family: "Space Grotesk", sans-serif;
+    width:35px;
+    height:35px;
 
-            font-size: clamp(3rem, 7vw, 5.8rem);
+    border-radius:50%;
 
-            line-height: 1.02;
+    display:flex;
 
-            letter-spacing: -3px;
+    align-items:center;
+    justify-content:center;
 
-            margin-bottom: 25px;
-        }
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple)
+        );
 
-        .gradient-text {
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #00e5ff
-            );
+    color:#001018;
 
-            -webkit-background-clip: text;
-            background-clip: text;
+    font-size:.8rem;
 
-            color: transparent;
-        }
+    font-weight:800;
+}
 
-        .hero-description {
-            max-width: 650px;
+.logo-text{
 
-            color: var(--muted);
+    font-family:"Space Grotesk";
 
-            font-size: 1.05rem;
+    font-weight:700;
 
-            margin-bottom: 35px;
-        }
+    font-size:1.05rem;
+}
 
-        .hero-buttons {
-            display: flex;
+.logo-text span{
+    color:var(--cyan);
+}
 
-            gap: 14px;
+.nav-sub{
 
-            flex-wrap: wrap;
-        }
+    display:block;
 
-        .btn {
-            display: inline-flex;
+    color:var(--muted);
 
-            align-items: center;
-            justify-content: center;
+    font-size:.5rem;
 
-            min-height: 46px;
+    margin-top:-3px;
+}
 
-            padding: 0 20px;
+nav{
 
-            border-radius: 8px;
+    display:flex;
 
-            font-size: 0.9rem;
+    gap:28px;
 
-            font-weight: 600;
+    align-items:center;
+}
 
-            transition: 0.3s;
+nav a{
 
-            cursor: pointer;
-        }
+    color:#c5d0db;
 
-        .btn-primary {
-            background: var(--primary);
+    font-size:.78rem;
 
-            color: #001014;
-        }
+    transition:.3s;
 
-        .btn-primary:hover {
-            background: #38edff;
+    position:relative;
+}
 
-            transform: translateY(-3px);
+nav a:hover,
+nav a.active{
 
-            box-shadow:
-                0 10px 30px rgba(0,229,255,0.15);
-        }
+    color:var(--cyan);
+}
 
-        .btn-outline {
-            border: 1px solid var(--border);
+nav a.active::after{
 
-            background: rgba(255,255,255,0.02);
+    content:"";
 
-            color: white;
-        }
+    position:absolute;
 
-        .btn-outline:hover {
-            border-color: var(--primary);
+    left:0;
+    right:0;
 
-            color: var(--primary);
+    bottom:-10px;
 
-            transform: translateY(-3px);
-        }
+    height:2px;
 
+    background:var(--cyan);
 
-        /* =====================================================
-           HERO VISUAL
-        ===================================================== */
+    box-shadow:
+        0 0 10px var(--cyan);
+}
 
-        .hero-visual {
-            position: relative;
+.resume-btn{
 
-            display: flex;
+    padding:9px 15px;
 
-            justify-content: center;
+    border-radius:9px;
 
-            align-items: center;
-        }
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
 
-        .profile-orbit {
-            width: 340px;
-            height: 340px;
+    color:#001018 !important;
 
-            border: 1px solid rgba(0,229,255,0.2);
+    font-weight:700;
 
-            border-radius: 50%;
+    font-size:.72rem !important;
+}
 
-            position: relative;
+.menu{
 
-            animation: orbitFloat 5s ease-in-out infinite;
-        }
+    display:none;
 
-        .profile-orbit::before,
-        .profile-orbit::after {
-            content: "";
+    background:none;
 
-            position: absolute;
+    border:0;
 
-            border-radius: 50%;
+    color:white;
 
-            border: 1px solid rgba(0,229,255,0.12);
-        }
+    font-size:1.4rem;
 
-        .profile-orbit::before {
-            inset: 35px;
-        }
+    cursor:pointer;
+}
 
-        .profile-orbit::after {
-            inset: 75px;
-        }
 
-        .profile-center {
-            position: absolute;
+/* =========================================================
+   HERO
+========================================================= */
 
-            inset: 100px;
+.hero{
 
-            border-radius: 50%;
+    min-height:100vh;
 
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    #172b39,
-                    #071018
-                );
+    display:flex;
 
-            border: 1px solid rgba(0,229,255,0.35);
+    align-items:center;
 
-            display: flex;
+    padding-top:100px;
 
-            align-items: center;
-            justify-content: center;
+    position:relative;
+}
 
-            text-align: center;
+.hero-grid{
 
-            box-shadow:
-                0 0 70px rgba(0,229,255,0.1);
-        }
+    display:grid;
 
-        .profile-center span {
-            font-family: "Space Grotesk", sans-serif;
+    grid-template-columns:
+        1fr 1fr;
 
-            font-size: 2.5rem;
+    gap:50px;
 
-            font-weight: 700;
+    align-items:center;
+}
 
-            color: var(--primary);
-        }
+.badge{
 
-        .orbit-dot {
-            position: absolute;
+    display:inline-flex;
 
-            width: 12px;
-            height: 12px;
+    align-items:center;
 
-            background: var(--primary);
+    gap:8px;
 
-            border-radius: 50%;
+    padding:7px 13px;
 
-            box-shadow:
-                0 0 20px var(--primary);
-        }
+    border-radius:20px;
 
-        .orbit-dot.one {
-            top: 20px;
-            right: 75px;
-        }
+    background:
+        rgba(0,234,255,.06);
 
-        .orbit-dot.two {
-            bottom: 45px;
-            left: 30px;
+    border:
+        1px solid
+        rgba(0,234,255,.18);
 
-            background: var(--purple);
-        }
+    color:var(--cyan);
 
-        .orbit-dot.three {
-            right: 15px;
-            bottom: 95px;
+    font-size:.68rem;
 
-            background: var(--success);
-        }
+    letter-spacing:1px;
 
-        @keyframes orbitFloat {
+    text-transform:uppercase;
 
-            0%,100% {
-                transform: translateY(0);
-            }
+    margin-bottom:20px;
+}
 
-            50% {
-                transform: translateY(-12px);
-            }
-        }
+.badge-dot{
 
+    width:7px;
+    height:7px;
 
-        /* =====================================================
-           SOCIAL
-        ===================================================== */
+    background:var(--green);
 
-        .social-links {
-            display: flex;
+    border-radius:50%;
 
-            gap: 18px;
+    box-shadow:
+        0 0 12px var(--green);
+}
 
-            margin-top: 30px;
-        }
+.hero h1{
 
-        .social-links a {
-            color: var(--muted);
+    font-family:"Space Grotesk";
 
-            font-size: 0.85rem;
+    font-size:
+        clamp(
+            3.2rem,
+            6vw,
+            5.5rem
+        );
 
-            transition: 0.3s;
-        }
+    line-height:.98;
 
-        .social-links a:hover {
-            color: var(--primary);
-        }
+    letter-spacing:-3px;
 
+    margin-bottom:15px;
+}
 
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
+.gradient{
 
-        section {
-            scroll-margin-top: 100px;
-        }
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            #ffffff 45%,
+            var(--purple)
+        );
 
-        .section {
-            padding: 100px 0;
-        }
+    -webkit-background-clip:text;
 
-        .section-header {
-            margin-bottom: 45px;
-        }
+    background-clip:text;
 
-        .section-label {
-            color: var(--primary);
+    color:transparent;
+}
 
-            font-size: 0.75rem;
+.hero-role{
 
-            text-transform: uppercase;
+    font-family:"Space Grotesk";
 
-            letter-spacing: 3px;
+    font-size:1.25rem;
 
-            font-weight: 700;
+    color:var(--cyan);
 
-            margin-bottom: 10px;
-        }
+    margin-bottom:18px;
 
-        .section-title {
-            font-family: "Space Grotesk", sans-serif;
+    font-weight:600;
+}
 
-            font-size: clamp(2rem, 4vw, 3rem);
+.hero-description{
 
-            letter-spacing: -1px;
-        }
+    max-width:650px;
 
-        .section-description {
-            color: var(--muted);
+    color:var(--muted);
 
-            max-width: 650px;
+    font-size:.92rem;
 
-            margin-top: 12px;
-        }
+    line-height:1.8;
 
+    margin-bottom:28px;
+}
 
-        /* =====================================================
-           ABOUT
-        ===================================================== */
+.hero-buttons{
 
-        .about-grid {
-            display: grid;
+    display:flex;
 
-            grid-template-columns: 1fr 1fr;
+    gap:12px;
 
-            gap: 30px;
-        }
+    flex-wrap:wrap;
+}
 
-        .about-card {
-            background: var(--card);
+.btn{
 
-            border: 1px solid var(--border);
+    display:inline-flex;
 
-            border-radius: 14px;
+    align-items:center;
 
-            padding: 30px;
-        }
+    justify-content:center;
 
-        .about-card p {
-            color: var(--text);
+    padding:11px 19px;
 
-            line-height: 1.9;
-        }
+    border-radius:9px;
 
-        .stats {
-            display: grid;
+    font-size:.75rem;
 
-            grid-template-columns: repeat(2,1fr);
+    font-weight:700;
 
-            gap: 15px;
-        }
+    transition:.3s;
+}
 
-        .stat {
-            padding: 25px;
+.btn-primary{
 
-            background: rgba(255,255,255,0.025);
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--cyan2)
+        );
 
-            border: 1px solid var(--border);
+    color:#001018;
 
-            border-radius: 12px;
-        }
+    box-shadow:
+        0 8px 30px
+        rgba(0,234,255,.15);
+}
 
-        .stat strong {
-            display: block;
+.btn-primary:hover{
 
-            color: var(--primary);
+    transform:translateY(-3px);
 
-            font-size: 2rem;
+    box-shadow:
+        0 15px 40px
+        rgba(0,234,255,.25);
+}
 
-            font-family: "Space Grotesk", sans-serif;
-        }
+.btn-outline{
 
-        .stat span {
-            color: var(--muted);
+    border:
+        1px solid
+        rgba(0,234,255,.4);
 
-            font-size: 0.8rem;
-        }
+    color:white;
 
+    background:
+        rgba(0,234,255,.02);
+}
 
-        /* =====================================================
-           SKILLS
-        ===================================================== */
+.btn-outline:hover{
 
-        .skills-grid {
-            display: grid;
+    border-color:var(--cyan);
 
-            grid-template-columns:
-                repeat(4,1fr);
+    color:var(--cyan);
 
-            gap: 14px;
-        }
+    transform:translateY(-3px);
+}
 
-        .skill {
-            background: var(--card);
+.social{
 
-            border: 1px solid var(--border);
+    display:flex;
 
-            padding: 20px;
+    gap:18px;
 
-            border-radius: 10px;
+    margin-top:25px;
+}
 
-            color: var(--text);
+.social a{
 
-            transition: 0.3s;
-        }
+    color:#8799aa;
 
-        .skill:hover {
-            transform: translateY(-5px);
+    font-size:.8rem;
 
-            border-color: rgba(0,229,255,0.35);
+    transition:.3s;
+}
 
-            color: var(--primary);
-        }
+.social a:hover{
+    color:var(--cyan);
+}
 
-        .skill small {
-            display: block;
 
-            color: var(--muted);
+/* =========================================================
+   HERO GRAPHIC
+========================================================= */
 
-            margin-top: 5px;
-        }
+.hero-art{
 
+    position:relative;
 
-        /* =====================================================
-           PROJECT FILTER
-        ===================================================== */
+    min-height:430px;
 
-        .filters {
-            display: flex;
+    display:flex;
 
-            flex-wrap: wrap;
+    justify-content:center;
 
-            gap: 10px;
+    align-items:center;
+}
 
-            margin-bottom: 30px;
-        }
+.laptop{
 
-        .filter-btn {
-            border: 1px solid var(--border);
+    width:290px;
 
-            background: transparent;
+    height:185px;
 
-            color: var(--muted);
+    border-radius:12px;
 
-            padding: 9px 16px;
+    background:
+        linear-gradient(
+            135deg,
+            #182d3c,
+            #06111a
+        );
 
-            border-radius: 20px;
+    border:
+        1px solid
+        rgba(0,234,255,.35);
 
-            cursor: pointer;
+    transform:
+        perspective(700px)
+        rotateX(10deg)
+        rotateY(-12deg);
 
-            transition: 0.3s;
-        }
+    box-shadow:
+        0 25px 70px
+        rgba(0,234,255,.13);
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: rgba(0,229,255,0.08);
+    position:relative;
 
-            border-color: var(--primary);
+    z-index:2;
+}
 
-            color: var(--primary);
-        }
+.laptop-screen{
 
+    position:absolute;
 
-        /* =====================================================
-           PROJECTS
-        ===================================================== */
+    inset:12px;
 
-        .projects-grid {
-            display: grid;
+    border-radius:7px;
 
-            grid-template-columns:
-                repeat(2,1fr);
+    background:
+        linear-gradient(
+            135deg,
+            #071827,
+            #08111c
+        );
 
-            gap: 20px;
-        }
+    border:
+        1px solid
+        rgba(255,255,255,.06);
 
-        .project {
-            background: var(--card);
+    display:flex;
 
-            border: 1px solid var(--border);
+    align-items:center;
 
-            border-radius: 14px;
+    justify-content:center;
+}
 
-            padding: 25px;
+.screen-code{
 
-            display: flex;
+    color:var(--cyan);
 
-            flex-direction: column;
+    font-family:monospace;
 
-            min-height: 280px;
+    font-size:2.4rem;
+}
 
-            transition: 0.35s;
-        }
+.laptop-base{
 
-        .project:hover {
-            transform: translateY(-7px);
+    position:absolute;
 
-            border-color: rgba(0,229,255,0.3);
+    width:330px;
 
-            background: var(--card-hover);
-        }
+    height:15px;
 
-        .project-top {
-            display: flex;
+    left:-20px;
 
-            justify-content: space-between;
+    bottom:-14px;
 
-            gap: 15px;
+    background:#142633;
 
-            margin-bottom: 20px;
-        }
+    border-radius:
+        0 0 20px 20px;
 
-        .project-number {
-            color: #4f5b6a;
+    border:
+        1px solid
+        rgba(0,234,255,.18);
+}
 
-            font-size: 0.75rem;
+.tech-orbit{
 
-            font-weight: 700;
-        }
+    position:absolute;
 
-        .project-type {
-            color: var(--primary);
+    width:390px;
+    height:390px;
 
-            font-size: 0.7rem;
+    border:
+        1px solid
+        rgba(0,234,255,.15);
 
-            text-transform: uppercase;
+    border-radius:50%;
 
-            letter-spacing: 1px;
-        }
+    animation:spin 18s linear infinite;
+}
 
-        .project h3 {
-            font-family: "Space Grotesk", sans-serif;
+.tech-orbit::before{
 
-            font-size: 1.35rem;
+    content:"";
 
-            margin-bottom: 10px;
-        }
+    position:absolute;
 
-        .project p {
-            color: var(--muted);
+    inset:55px;
 
-            font-size: 0.88rem;
+    border:
+        1px solid
+        rgba(157,92,255,.12);
 
-            line-height: 1.7;
-        }
+    border-radius:50%;
+}
 
-        .project-tech {
-            display: flex;
+@keyframes spin{
 
-            flex-wrap: wrap;
+    from{
+        transform:rotate(0);
+    }
 
-            gap: 7px;
+    to{
+        transform:rotate(360deg);
+    }
+}
 
-            margin-top: 18px;
-        }
+.tech-box{
 
-        .tech {
-            padding: 5px 9px;
+    position:absolute;
 
-            border-radius: 5px;
+    min-width:95px;
 
-            background: rgba(255,255,255,0.04);
+    padding:13px;
 
-            color: #9da9b8;
+    border-radius:10px;
 
-            font-size: 0.68rem;
-        }
+    text-align:center;
 
-        .project-bottom {
-            margin-top: auto;
+    background:
+        rgba(8,25,39,.85);
 
-            padding-top: 25px;
+    backdrop-filter:blur(12px);
 
-            display: flex;
+    border:
+        1px solid
+        rgba(0,234,255,.22);
 
-            gap: 10px;
-        }
+    color:white;
 
-        .project-btn {
-            display: inline-flex;
+    font-size:.68rem;
 
-            align-items: center;
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.25);
+}
 
-            justify-content: center;
+.tech-box strong{
 
-            padding: 9px 14px;
+    display:block;
 
-            border-radius: 6px;
+    color:var(--cyan);
 
-            font-size: 0.75rem;
+    font-size:1rem;
 
-            font-weight: 600;
+    margin-bottom:3px;
+}
 
-            border: 1px solid var(--border);
+.box-ai{
 
-            transition: 0.3s;
-        }
+    top:35px;
+    left:25px;
+}
 
-        .project-btn.live {
-            background: var(--primary);
+.box-cloud{
 
-            color: #001014;
+    top:35px;
+    right:20px;
+}
 
-            border-color: var(--primary);
-        }
+.box-web{
 
-        .project-btn.github:hover {
-            color: var(--primary);
+    bottom:55px;
+    left:20px;
+}
 
-            border-color: var(--primary);
-        }
+.box-mobile{
 
-        .project-btn.live:hover {
-            background: #40edff;
-        }
+    bottom:45px;
+    right:25px;
+}
 
-        .project-btn.disabled {
-            opacity: 0.4;
 
-            cursor: not-allowed;
+/* =========================================================
+   SECTION
+========================================================= */
 
-            pointer-events: none;
-        }
+section{
+    scroll-margin-top:100px;
+}
 
+.section{
 
-        /* =====================================================
-           TIMELINE
-        ===================================================== */
+    padding:100px 0;
+}
 
-        .timeline {
-            position: relative;
+.section-head{
 
-            max-width: 800px;
-        }
+    margin-bottom:40px;
+}
 
-        .timeline::before {
-            content: "";
+.label{
 
-            position: absolute;
+    color:var(--cyan);
 
-            left: 8px;
+    font-size:.63rem;
 
-            top: 0;
-            bottom: 0;
+    text-transform:uppercase;
 
-            width: 1px;
+    letter-spacing:2px;
 
-            background: rgba(255,255,255,0.1);
-        }
+    font-weight:700;
 
-        .timeline-item {
-            position: relative;
+    margin-bottom:7px;
+}
 
-            padding-left: 40px;
+.section-title{
 
-            margin-bottom: 35px;
-        }
+    font-family:"Space Grotesk";
 
-        .timeline-item::before {
-            content: "";
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3rem
+        );
 
-            position: absolute;
+    letter-spacing:-1px;
+}
 
-            left: 3px;
+.section-description{
 
-            top: 7px;
+    color:var(--muted);
 
-            width: 11px;
-            height: 11px;
+    max-width:650px;
 
-            border-radius: 50%;
+    font-size:.86rem;
 
-            background: var(--primary);
+    margin-top:8px;
+}
 
-            box-shadow:
-                0 0 15px rgba(0,229,255,0.5);
-        }
 
-        .timeline-item h3 {
-            font-family: "Space Grotesk", sans-serif;
+/* =========================================================
+   ABOUT
+========================================================= */
 
-            margin-bottom: 4px;
-        }
+.about-grid{
 
-        .timeline-item span {
-            color: var(--primary);
+    display:grid;
 
-            font-size: 0.78rem;
-        }
+    grid-template-columns:
+        1.4fr .6fr;
 
-        .timeline-item p {
-            color: var(--muted);
+    gap:18px;
+}
 
-            margin-top: 7px;
+.glass{
 
-            font-size: 0.88rem;
-        }
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,35,49,.78),
+            rgba(5,16,26,.65)
+        );
 
+    border:
+        1px solid var(--border);
 
-        /* =====================================================
-           CONTACT
-        ===================================================== */
+    border-radius:14px;
 
-        .contact-box {
-            display: grid;
+    backdrop-filter:blur(15px);
 
-            grid-template-columns: 0.8fr 1.2fr;
+    box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.025);
+}
 
-            gap: 30px;
+.about-card{
 
-            background: var(--card);
+    padding:30px;
+}
 
-            border: 1px solid var(--border);
+.about-card p{
 
-            border-radius: 15px;
+    color:var(--text);
 
-            padding: 35px;
-        }
+    font-size:.88rem;
 
-        .contact-info h3 {
-            font-family: "Space Grotesk", sans-serif;
+    line-height:1.9;
+}
 
-            font-size: 1.7rem;
+.stats{
 
-            margin-bottom: 15px;
-        }
+    display:grid;
 
-        .contact-info p {
-            color: var(--muted);
+    grid-template-columns:
+        repeat(2,1fr);
 
-            margin-bottom: 25px;
-        }
+    gap:12px;
+}
 
-        .contact-info a {
-            display: block;
+.stat{
 
-            color: var(--text);
+    padding:22px;
 
-            margin: 10px 0;
+    display:flex;
 
-            transition: 0.3s;
-        }
+    flex-direction:column;
 
-        .contact-info a:hover {
-            color: var(--primary);
-        }
+    justify-content:center;
+}
 
-        .contact-form {
-            display: flex;
+.stat-icon{
 
-            flex-direction: column;
+    color:var(--cyan);
 
-            gap: 12px;
-        }
+    font-size:1.2rem;
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
+    margin-bottom:8px;
+}
 
-            padding: 13px 15px;
+.stat strong{
 
-            border-radius: 7px;
+    font-family:"Space Grotesk";
 
-            border: 1px solid var(--border);
+    font-size:1.5rem;
 
-            background: #080d14;
+    color:var(--cyan);
+}
 
-            color: white;
+.stat span{
 
-            outline: none;
+    color:var(--muted);
 
-            resize: vertical;
-        }
+    font-size:.65rem;
+}
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary);
-        }
 
-        .contact-form textarea {
-            min-height: 140px;
-        }
+/* =========================================================
+   SKILLS
+========================================================= */
 
+.skills-layout{
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+    display:grid;
 
-        footer {
-            padding: 30px 0;
+    grid-template-columns:
+        repeat(7,1fr);
 
-            border-top: 1px solid var(--border);
+    gap:10px;
+}
 
-            text-align: center;
+.skill-group{
 
-            color: var(--muted);
+    min-height:145px;
 
-            font-size: 0.8rem;
-        }
+    padding:17px 12px;
 
+    text-align:center;
 
-        /* =====================================================
-           BACK TO TOP
-        ===================================================== */
+    display:flex;
 
-        #topBtn {
-            position: fixed;
+    flex-direction:column;
 
-            right: 25px;
-            bottom: 25px;
+    align-items:center;
 
-            width: 45px;
-            height: 45px;
+    justify-content:center;
 
-            border-radius: 50%;
+    transition:.3s;
+}
 
-            border: 1px solid var(--border);
+.skill-group:hover{
 
-            background: #0d131d;
+    transform:translateY(-5px);
 
-            color: var(--primary);
+    border-color:
+        rgba(0,234,255,.35);
 
-            cursor: pointer;
+    box-shadow:
+        0 10px 30px
+        rgba(0,234,255,.05);
+}
 
-            opacity: 0;
+.skill-icon{
 
-            pointer-events: none;
+    font-size:1.5rem;
 
-            transition: 0.3s;
+    margin-bottom:8px;
+}
 
-            z-index: 999;
-        }
+.skill-group h3{
 
-        #topBtn.show {
-            opacity: 1;
+    font-size:.72rem;
 
-            pointer-events: auto;
-        }
+    margin-bottom:8px;
+}
 
+.skill-items{
 
-        /* =====================================================
-           REVEAL ANIMATION
-        ===================================================== */
+    display:flex;
 
-        .reveal {
-            opacity: 0;
+    flex-wrap:wrap;
 
-            transform: translateY(25px);
+    justify-content:center;
 
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
-        }
+    gap:5px;
+}
 
-        .reveal.visible {
-            opacity: 1;
+.skill-tag{
 
-            transform: translateY(0);
-        }
+    padding:4px 6px;
 
+    background:
+        rgba(255,255,255,.04);
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+    color:#9eafbd;
 
-        @media(max-width:900px) {
+    border-radius:4px;
 
-            .hero-grid,
-            .about-grid,
-            .contact-box {
-                grid-template-columns: 1fr;
-            }
+    font-size:.55rem;
+}
 
-            .hero {
-                padding: 70px 0;
-            }
+.cloud-group{
 
-            .hero-visual {
-                order: -1;
-            }
+    border-color:
+        rgba(0,234,255,.28);
+}
 
-            .profile-orbit {
-                width: 280px;
-                height: 280px;
-            }
+.cloud-group h3{
+    color:var(--cyan);
+}
 
-            .profile-center {
-                inset: 82px;
-            }
 
-            .skills-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
 
-        }
+.filters{
 
+    display:flex;
 
-        @media(max-width:700px) {
+    gap:8px;
 
-            .container {
-                width: min(
-                    var(--max-width),
-                    calc(100% - 28px)
-                );
-            }
+    flex-wrap:wrap;
 
-            .menu-btn {
-                display: block;
-            }
+    justify-content:center;
 
-            nav {
-                position: absolute;
+    margin-bottom:30px;
+}
 
-                top: 76px;
-                left: 0;
-                right: 0;
+.filter{
 
-                display: none;
+    padding:8px 15px;
 
-                flex-direction: column;
+    border-radius:20px;
 
-                gap: 0;
+    border:
+        1px solid var(--border);
 
-                background: rgba(5,7,11,0.97);
+    background:
+        rgba(255,255,255,.02);
 
-                border-bottom: 1px solid var(--border);
+    color:var(--muted);
 
-                padding: 10px 20px;
-            }
+    cursor:pointer;
 
-            nav.open {
-                display: flex;
-            }
+    font-size:.67rem;
 
-            nav a {
-                padding: 14px 0;
+    transition:.3s;
+}
 
-                border-bottom:
-                    1px solid rgba(255,255,255,0.05);
-            }
+.filter:hover,
+.filter.active{
 
-            .hero h1 {
-                font-size: 3rem;
+    color:#001018;
 
-                letter-spacing: -2px;
-            }
+    background:var(--cyan);
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+    border-color:var(--cyan);
 
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+}
 
-            .stats {
-                grid-template-columns: 1fr;
-            }
 
-            .section {
-                padding: 75px 0;
-            }
+/* =========================================================
+   PROJECT GRID
+========================================================= */
 
-        }
+.projects{
 
+    display:grid;
 
-        @media(max-width:450px) {
+    grid-template-columns:
+        repeat(5,1fr);
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+    gap:13px;
+}
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+.project{
 
-            .project-bottom {
-                flex-direction: column;
-            }
+    min-height:245px;
 
-            .project-btn {
-                width: 100%;
-            }
+    padding:17px;
 
-        }
+    display:flex;
 
-    </style>
+    flex-direction:column;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.project::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+
+    height:100px;
+
+    right:-50px;
+
+    top:-50px;
+
+    border-radius:50%;
+
+    background:
+        rgba(0,234,255,.08);
+
+    filter:blur(25px);
+}
+
+.project:hover{
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(0,234,255,.35);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.25);
+}
+
+.project-number{
+
+    color:#536574;
+
+    font-size:.55rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.project h3{
+
+    font-family:"Space Grotesk";
+
+    font-size:.82rem;
+
+    line-height:1.35;
+
+    margin-bottom:7px;
+}
+
+.project p{
+
+    color:var(--muted);
+
+    font-size:.63rem;
+
+    line-height:1.55;
+}
+
+.project-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:4px;
+
+    margin-top:12px;
+}
+
+.project-tag{
+
+    padding:3px 5px;
+
+    border-radius:4px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:#8396a6;
+
+    font-size:.5rem;
+}
+
+.project-actions{
+
+    margin-top:auto;
+
+    padding-top:15px;
+
+    display:flex;
+
+    gap:6px;
+}
+
+.project-btn{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:7px 5px;
+
+    border-radius:6px;
+
+    font-size:.56rem;
+
+    border:
+        1px solid var(--border);
+
+    transition:.3s;
+}
+
+.code-btn:hover{
+
+    border-color:var(--cyan);
+
+    color:var(--cyan);
+}
+
+.live-btn{
+
+    background:var(--cyan);
+
+    color:#001018;
+
+    border-color:var(--cyan);
+
+    font-weight:700;
+}
+
+.live-btn:hover{
+
+    background:white;
+
+    color:#001018;
+}
+
+.disabled{
+
+    opacity:.3;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    margin-top:55px;
+}
+
+.journey-line{
+
+    position:absolute;
+
+    left:5%;
+
+    right:5%;
+
+    top:28px;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--cyan)
+        );
+
+    opacity:.5;
+}
+
+.journey-item{
+
+    width:18%;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.journey-circle{
+
+    width:55px;
+
+    height:55px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        #071521;
+
+    border:
+        1px solid
+        rgba(0,234,255,.35);
+
+    color:var(--cyan);
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:13px;
+}
+
+.journey-item h3{
+
+    font-size:.7rem;
+
+    margin-bottom:5px;
+}
+
+.journey-item p{
+
+    color:var(--muted);
+
+    font-size:.55rem;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+    display:grid;
+
+    grid-template-columns:
+        .7fr 1.3fr;
+
+    gap:20px;
+
+    padding:30px;
+}
+
+.contact-info h3{
+
+    font-family:"Space Grotesk";
+
+    font-size:1.5rem;
+
+    margin-bottom:10px;
+}
+
+.contact-info p{
+
+    color:var(--muted);
+
+    font-size:.78rem;
+
+    margin-bottom:20px;
+}
+
+.contact-link{
+
+    display:block;
+
+    color:#aebdca;
+
+    font-size:.72rem;
+
+    margin:9px 0;
+
+    transition:.3s;
+}
+
+.contact-link:hover{
+
+    color:var(--cyan);
+}
+
+.form{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+}
+
+.form input,
+.form textarea{
+
+    width:100%;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:8px;
+
+    padding:12px;
+
+    color:white;
+
+    outline:none;
+
+    font-size:.72rem;
+}
+
+.form input:focus,
+.form textarea:focus{
+
+    border-color:var(--cyan);
+}
+
+.form textarea{
+
+    grid-column:1/-1;
+
+    min-height:115px;
+
+    resize:vertical;
+}
+
+.form button{
+
+    grid-column:1/-1;
+
+    border:0;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    border-top:
+        1px solid var(--border);
+
+    padding:25px 0;
+
+    text-align:center;
+
+    color:#637484;
+
+    font-size:.65rem;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+.top{
+
+    position:fixed;
+
+    right:22px;
+
+    bottom:22px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(0,234,255,.3);
+
+    background:
+        rgba(4,17,27,.85);
+
+    color:var(--cyan);
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.top.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1050px){
+
+    .skills-layout{
+
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+    .projects{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:750px){
+
+    .container{
+
+        width:
+            calc(100% - 28px);
+    }
+
+    nav{
+
+        display:none;
+
+        position:absolute;
+
+        top:72px;
+
+        left:0;
+
+        right:0;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:0;
+
+        padding:10px 18px;
+
+        background:
+            rgba(3,12,20,.96);
+
+        border:
+            1px solid var(--border);
+
+        border-radius:12px;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    nav a{
+
+        padding:13px 5px;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.05);
+    }
+
+    nav a.active::after{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+
+        padding-top:130px;
+    }
+
+    .hero-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero-art{
+
+        min-height:330px;
+
+        order:-1;
+    }
+
+    .hero h1{
+
+        font-size:3rem;
+
+        letter-spacing:-2px;
+    }
+
+    .laptop{
+
+        width:230px;
+
+        height:145px;
+    }
+
+    .laptop-base{
+
+        width:260px;
+
+        left:-15px;
+    }
+
+    .tech-orbit{
+
+        width:310px;
+
+        height:310px;
+    }
+
+    .tech-box{
+
+        min-width:75px;
+
+        padding:9px;
+
+        font-size:.55rem;
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .skills-layout{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .projects{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .journey{
+
+        flex-direction:column;
+
+        gap:25px;
+    }
+
+    .journey-line{
+
+        left:27px;
+
+        top:0;
+
+        bottom:0;
+
+        width:2px;
+
+        height:auto;
+    }
+
+    .journey-item{
+
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:
+            55px 1fr;
+
+        column-gap:15px;
+
+        text-align:left;
+
+        align-items:center;
+    }
+
+    .journey-circle{
+
+        grid-row:1/3;
+
+        margin:0;
+    }
+
+    .contact{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .hero h1{
+
+        font-size:2.5rem;
+    }
+
+    .skills-layout{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .projects{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form{
+
+        grid-template-columns:1fr;
+    }
+
+    .form textarea,
+    .form button{
+
+        grid-column:auto;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<div class="background-orb orb1"></div>
+<div class="background-orb orb2"></div>
+<div class="background-orb orb3"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
 
 <header>
 
-    <div class="container navbar">
+<div class="container">
 
-        <a href="#home" class="logo">
-            Mani<span>.</span>
-        </a>
+<div class="navbar">
 
-        <button
-            class="menu-btn"
-            id="menuBtn"
-            aria-label="Open navigation menu">
 
-            ☰
+<a href="#home" class="logo">
 
-        </button>
+<div class="logo-circle">
+MM
+</div>
 
-        <nav id="nav">
+<div>
 
-            <a href="#home" class="active">
-                Home
-            </a>
+<div class="logo-text">
+Manikandan <span>Mani</span>
+</div>
 
-            <a href="#about">
-                About
-            </a>
+<span class="nav-sub">
+AI/ML & Cloud Enthusiast
+</span>
 
-            <a href="#skills">
-                Skills
-            </a>
+</div>
 
-            <a href="#projects">
-                Projects
-            </a>
+</a>
 
-            <a href="#journey">
-                Journey
-            </a>
 
-            <a href="#contact">
-                Contact
-            </a>
+<nav id="navigation">
 
-        </nav>
+<a href="#home" class="active">
+Home
+</a>
 
-    </div>
+<a href="#about">
+About
+</a>
+
+<a href="#skills">
+Skills
+</a>
+
+<a href="#projects">
+Projects
+</a>
+
+<a href="#journey">
+Journey
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+<a
+href="RESUME (2).pdf"
+target="_blank"
+class="resume-btn">
+
+↓ Resume
+
+</a>
+
+</nav>
+
+
+<button
+class="menu"
+id="menu">
+
+☰
+
+</button>
+
+
+</div>
+
+</div>
 
 </header>
 
@@ -1293,1478 +1944,1567 @@
 <main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
-<section
-    id="home"
-    class="hero">
+<section id="home" class="hero">
 
-    <div class="container hero-grid">
+<div class="container hero-grid">
 
 
-        <div class="hero-content reveal">
+<div class="reveal">
 
-            <div class="hero-badge">
+<div class="badge">
 
-                <span class="dot"></span>
+<span class="badge-dot"></span>
 
-                Available for opportunities
+WELCOME TO MY PORTFOLIO
 
-            </div>
-
-
-            <h1>
-
-                Hi, I'm
-
-                <span class="gradient-text">
-                    Manikandan
-                </span>
-
-            </h1>
+</div>
 
 
-            <p class="hero-description">
+<h1>
 
-                Information Technology student focused on
-                Artificial Intelligence, Machine Learning,
-                Cloud Computing and Software Development.
+Hi, I'm
 
-                I build practical applications and explore
-                technologies that turn ideas into real-world
-                solutions.
+<br>
 
-            </p>
+<span class="gradient">
+Manikandan Mani
+</span>
 
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#projects"
-                    class="btn btn-primary">
-
-                    Explore My Work
-
-                </a>
+</h1>
 
 
-                <a
-                    href="RESUME (2).pdf"
-                    target="_blank"
-                    class="btn btn-outline">
+<div class="hero-role">
 
-                    View Resume
+Aspiring AI/ML & Cloud Architect
 
-                </a>
-
-            </div>
+</div>
 
 
-            <div class="social-links">
+<p class="hero-description">
 
-                <a
-                    href="https://github.com/ManikandanMani4"
-                    target="_blank">
+I build real-world projects using Artificial
+Intelligence, Web & Mobile Development, and
+Cloud Technologies. I enjoy turning ideas into
+practical solutions that create impact.
 
-                    GitHub ↗
-
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/manikandanmani456/"
-                    target="_blank">
-
-                    LinkedIn ↗
-
-                </a>
-
-            </div>
-
-        </div>
+</p>
 
 
+<div class="hero-buttons">
 
-        <div class="hero-visual reveal">
+<a
+href="#projects"
+class="btn btn-primary">
 
-            <div class="profile-orbit">
-
-                <div class="orbit-dot one"></div>
-
-                <div class="orbit-dot two"></div>
-
-                <div class="orbit-dot three"></div>
+View My Work →
+</a>
 
 
-                <div class="profile-center">
+<a
+href="#contact"
+class="btn btn-outline">
 
-                    <span>
-                        MM
-                    </span>
+✉ Contact Me
 
-                </div>
+</a>
 
-            </div>
-
-        </div>
+</div>
 
 
-    </div>
+<div class="social">
+
+<a
+href="https://github.com/ManikandanMani4"
+target="_blank">
+
+◉ GitHub
+
+</a>
+
+<a
+href="https://www.linkedin.com/in/manikandanmani456/"
+target="_blank">
+
+in LinkedIn
+
+</a>
+
+<a href="#contact">
+
+✉ Email
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- HERO ART -->
+
+<div class="hero-art reveal">
+
+
+<div class="tech-orbit">
+
+<div class="tech-box box-ai">
+
+<strong>◉</strong>
+
+AI / ML
+
+</div>
+
+
+<div class="tech-box box-cloud">
+
+<strong>☁</strong>
+
+Cloud
+
+</div>
+
+
+<div class="tech-box box-web">
+
+<strong>&lt;/&gt;</strong>
+
+Web Development
+
+</div>
+
+
+<div class="tech-box box-mobile">
+
+<strong>▣</strong>
+
+Mobile Apps
+
+</div>
+
+</div>
+
+
+<div class="laptop">
+
+<div class="laptop-screen">
+
+<div class="screen-code">
+
+&lt;/&gt;
+
+</div>
+
+</div>
+
+<div class="laptop-base"></div>
+
+</div>
+
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT
-===================================================== -->
+========================================================= -->
 
-<section
-    id="about"
-    class="section">
+<section id="about" class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="section-header reveal">
+<div class="section-head reveal">
 
-            <div class="section-label">
-                About Me
-            </div>
+<div class="label">
+ABOUT ME
+</div>
 
-            <h2 class="section-title">
-                Building with curiosity.
-            </h2>
+<h2 class="section-title">
+Who I Am
+</h2>
 
-            <p class="section-description">
-
-                I enjoy learning technologies by building
-                real applications and solving practical
-                problems.
-
-            </p>
-
-        </div>
+</div>
 
 
-
-        <div class="about-grid">
-
-
-            <div class="about-card reveal">
-
-                <p>
-
-                    I am an Information Technology student
-                    with a strong interest in Artificial
-                    Intelligence, Machine Learning, Cloud
-                    Computing and Software Development.
-
-                    <br><br>
-
-                    I enjoy creating applications that
-                    combine clean user experiences with
-                    practical functionality.
-
-                    <br><br>
-
-                    My long-term goal is to become an
-                    AI and Cloud Architect and design
-                    scalable, intelligent systems.
-
-                </p>
-
-            </div>
+<div class="about-grid">
 
 
+<div class="glass about-card reveal">
 
-            <div class="stats reveal">
+<p>
 
-                <div class="stat">
+I am an Information Technology student with
+a strong interest in Artificial Intelligence,
+Cloud Computing and Software Development.
 
-                    <strong>10+</strong>
+I enjoy learning new technologies and building
+real-world projects that solve practical problems.
 
-                    <span>
-                        Portfolio Projects
-                    </span>
+My projects cover AI applications, mobile
+development, web platforms, databases and
+cloud-oriented systems.
 
-                </div>
+My goal is to become a skilled AI and Cloud
+Architect and build scalable, intelligent systems.
 
+</p>
 
-                <div class="stat">
-
-                    <strong>AI</strong>
-
-                    <span>
-                        Focus Area
-                    </span>
-
-                </div>
+</div>
 
 
-                <div class="stat">
-
-                    <strong>Cloud</strong>
-
-                    <span>
-                        Career Direction
-                    </span>
-
-                </div>
+<div class="stats">
 
 
-                <div class="stat">
+<div class="glass stat reveal">
 
-                    <strong>2026</strong>
+<div class="stat-icon">
+⌘
+</div>
 
-                    <span>
-                        Current Journey
-                    </span>
+<strong>
+10+
+</strong>
 
-                </div>
+<span>
+Projects Completed
+</span>
 
-            </div>
+</div>
 
 
-        </div>
+<div class="glass stat reveal">
 
-    </div>
+<div class="stat-icon">
+🎓
+</div>
+
+<strong>
+IT
+</strong>
+
+<span>
+Undergraduate
+</span>
+
+</div>
+
+
+<div class="glass stat reveal">
+
+<div class="stat-icon">
+◎
+</div>
+
+<strong>
+AI / Cloud
+</strong>
+
+<span>
+Focus Area
+</span>
+
+</div>
+
+
+<div class="glass stat reveal">
+
+<div class="stat-icon">
+🚀
+</div>
+
+<strong>
+Always
+</strong>
+
+<span>
+Learning
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      SKILLS
-===================================================== -->
+========================================================= -->
 
-<section
-    id="skills"
-    class="section">
+<section id="skills" class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="section-header reveal">
+<div class="section-head reveal">
 
-            <div class="section-label">
-                Skills
-            </div>
+<div class="label">
+SKILLS
+</div>
 
-            <h2 class="section-title">
-                Technologies I work with.
-            </h2>
+<h2 class="section-title">
+Technologies I Work With
+</h2>
 
-        </div>
+<p class="section-description">
 
+Technologies across programming, web development,
+mobile applications, databases, AI/ML, cloud and DevOps.
 
-        <div class="skills-grid">
+</p>
 
-
-            <div class="skill reveal">
-                Java
-                <small>Programming</small>
-            </div>
+</div>
 
 
-            <div class="skill reveal">
-                Python
-                <small>Programming / AI</small>
-            </div>
+<div class="skills-layout">
 
 
-            <div class="skill reveal">
-                JavaScript
-                <small>Web Development</small>
-            </div>
+<!-- PROGRAMMING -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+☕
+</div>
+
+<h3>
+Programming
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+Java
+</span>
+
+<span class="skill-tag">
+Python
+</span>
+
+<span class="skill-tag">
+JavaScript
+</span>
+
+<span class="skill-tag">
+C
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                HTML & CSS
-                <small>Frontend</small>
-            </div>
+<!-- WEB -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+🌐
+</div>
+
+<h3>
+Web Development
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+HTML
+</span>
+
+<span class="skill-tag">
+CSS
+</span>
+
+<span class="skill-tag">
+React
+</span>
+
+<span class="skill-tag">
+Node.js
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                Flutter
-                <small>Mobile Development</small>
-            </div>
+<!-- MOBILE -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+📱
+</div>
+
+<h3>
+Mobile Development
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+Flutter
+</span>
+
+<span class="skill-tag">
+Dart
+</span>
+
+<span class="skill-tag">
+Firebase
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                Node.js
-                <small>Backend</small>
-            </div>
+<!-- DATABASE -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+🗄
+</div>
+
+<h3>
+Database
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+MySQL
+</span>
+
+<span class="skill-tag">
+MongoDB
+</span>
+
+<span class="skill-tag">
+SQL
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                Firebase
-                <small>Backend / Database</small>
-            </div>
+<!-- AI -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+🧠
+</div>
+
+<h3>
+AI / ML
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+Machine Learning
+</span>
+
+<span class="skill-tag">
+Generative AI
+</span>
+
+<span class="skill-tag">
+NLP
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                MySQL
-                <small>Database</small>
-            </div>
+<!-- CLOUD -->
+
+<div class="glass skill-group cloud-group reveal">
+
+<div class="skill-icon">
+☁
+</div>
+
+<h3>
+Cloud Computing
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+AWS
+</span>
+
+<span class="skill-tag">
+Azure
+</span>
+
+<span class="skill-tag">
+Google Cloud
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                AI / ML
-                <small>Artificial Intelligence</small>
-            </div>
+<!-- DEVOPS -->
+
+<div class="glass skill-group reveal">
+
+<div class="skill-icon">
+⚙
+</div>
+
+<h3>
+DevOps & Tools
+</h3>
+
+<div class="skill-items">
+
+<span class="skill-tag">
+Docker
+</span>
+
+<span class="skill-tag">
+Kubernetes
+</span>
+
+<span class="skill-tag">
+Git
+</span>
+
+<span class="skill-tag">
+GitHub
+</span>
+
+</div>
+
+</div>
 
 
-            <div class="skill reveal">
-                AWS
-                <small>Cloud</small>
-            </div>
+</div>
 
-
-            <div class="skill reveal">
-                Git & GitHub
-                <small>Version Control</small>
-            </div>
-
-
-            <div class="skill reveal">
-                REST API
-                <small>Backend Integration</small>
-            </div>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      PROJECTS
-===================================================== -->
+========================================================= -->
 
-<section
-    id="projects"
-    class="section">
+<section id="projects" class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="section-header reveal">
+<div class="section-head reveal">
 
-            <div class="section-label">
-                Portfolio
-            </div>
+<div class="label">
+PROJECTS
+</div>
 
-            <h2 class="section-title">
-                Selected Projects.
-            </h2>
+<h2 class="section-title">
+Featured Projects
+</h2>
 
-            <p class="section-description">
+<p class="section-description">
 
-                A collection of applications and systems
-                I've worked on across AI, web, mobile,
-                database and management domains.
+A collection of applications and systems developed
+across AI, web, mobile, agriculture and management.
 
-            </p>
+</p>
 
-        </div>
+</div>
 
 
-        <!-- FILTERS -->
+<!-- FILTER -->
 
-        <div class="filters reveal">
+<div class="filters reveal">
 
-            <button
-                type="button"
-                class="filter-btn active"
-                data-filter="all">
+<button
+class="filter active"
+data-filter="all">
 
-                All
+All
 
-            </button>
+</button>
 
+<button
+class="filter"
+data-filter="ai">
 
-            <button
-                type="button"
-                class="filter-btn"
-                data-filter="ai">
+AI / ML
 
-                AI / ML
+</button>
 
-            </button>
+<button
+class="filter"
+data-filter="web">
 
+Web
 
-            <button
-                type="button"
-                class="filter-btn"
-                data-filter="web">
+</button>
 
-                Web
+<button
+class="filter"
+data-filter="mobile">
 
-            </button>
+Mobile
 
+</button>
 
-            <button
-                type="button"
-                class="filter-btn"
-                data-filter="mobile">
+<button
+class="filter"
+data-filter="management">
 
-                Mobile
+Management
 
-            </button>
+</button>
 
+</div>
 
-            <button
-                type="button"
-                class="filter-btn"
-                data-filter="management">
 
-                Management
 
-            </button>
+<div class="projects">
 
-        </div>
 
+<!-- 01 -->
 
+<article
+class="glass project reveal"
+data-category="management web">
 
-        <div class="projects-grid">
+<div>
 
+<div class="project-number">
+01
+</div>
 
-            <!-- 01 -->
+<h3>
+Employee & HR Management Portal
+</h3>
 
-            <article
-                class="project reveal"
-                data-category="management web">
+<p>
+HR management system for employees,
+departments, attendance, leave and HR operations.
+</p>
 
-                <div>
+<div class="project-tags">
 
-                    <div class="project-top">
+<span class="project-tag">
+Odoo
+</span>
 
-                        <span class="project-number">
-                            01
-                        </span>
+<span class="project-tag">
+Web
+</span>
 
-                        <span class="project-type">
-                            Management
-                        </span>
+<span class="project-tag">
+HR
+</span>
 
-                    </div>
+</div>
 
+</div>
 
-                    <h3>
-                        Employee & HR Management Portal
-                    </h3>
+<div class="project-actions">
 
+<a
+href="https://github.com/ManikandanMani4/ODOO_HACKTHON_PROJECT"
+target="_blank"
+class="project-btn code-btn">
 
-                    <p>
+View Code ↗
 
-                        Centralized HR management platform
-                        designed to manage employee records,
-                        departments, roles and HR operations.
+</a>
 
-                    </p>
+<a
+href="#"
+class="project-btn live-btn disabled">
 
+Go Live
 
-                    <div class="project-tech">
+</a>
 
-                        <span class="tech">
-                            Web
-                        </span>
+</div>
 
-                        <span class="tech">
-                            Database
-                        </span>
+</article>
 
-                        <span class="tech">
-                            HR
-                        </span>
 
-                    </div>
 
-                </div>
+<!-- 02 -->
 
+<article
+class="glass project reveal"
+data-category="ai mobile">
 
-                <div class="project-bottom">
+<div>
 
-                    <a
-                        href="https://github.com/ManikandanMani4/ODOO_HACKTHON_PROJECT"
-                        target="_blank"
-                        class="project-btn github">
+<div class="project-number">
+02
+</div>
 
-                        GitHub ↗
+<h3>
+FuturePath Career
+</h3>
 
-                    </a>
+<p>
+AI career guidance platform that analyzes
+skills and provides personalized career guidance.
+</p>
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled"
-                        aria-disabled="true">
+<div class="project-tags">
 
-                        Live Demo
+<span class="project-tag">
+Flutter
+</span>
 
-                    </a>
+<span class="project-tag">
+Firebase
+</span>
 
-                </div>
+<span class="project-tag">
+AI
+</span>
 
-            </article>
+</div>
 
+</div>
 
+<div class="project-actions">
 
-            <!-- 02 -->
+<a
+href="https://github.com/ManikandanMani4/FuturePath_Career"
+target="_blank"
+class="project-btn code-btn">
 
-            <article
-                class="project reveal"
-                data-category="ai mobile">
+View Code ↗
 
-                <div>
+</a>
 
-                    <div class="project-top">
+<a
+href="https://futurepath-career.web.app/"
+target="_blank"
+class="project-btn live-btn">
 
-                        <span class="project-number">
-                            02
-                        </span>
+Go Live ↗
 
-                        <span class="project-type">
-                            AI / Career
-                        </span>
+</a>
 
-                    </div>
+</div>
 
+</article>
 
-                    <h3>
-                        FuturePath Career
-                    </h3>
 
 
-                    <p>
+<!-- 03 -->
 
-                        AI-powered career guidance platform
-                        designed to analyze skills and provide
-                        personalized career recommendations.
+<article
+class="glass project reveal"
+data-category="web management">
 
-                    </p>
+<div>
 
+<div class="project-number">
+03
+</div>
 
-                    <div class="project-tech">
+<h3>
+SmartStock
+</h3>
 
-                        <span class="tech">
-                            Flutter
-                        </span>
+<p>
+Inventory management system for managing
+products, stock and inventory operations.
+</p>
 
-                        <span class="tech">
-                            Firebase
-                        </span>
+<div class="project-tags">
 
-                        <span class="tech">
-                            Gemini AI
-                        </span>
+<span class="project-tag">
+React
+</span>
 
-                    </div>
+<span class="project-tag">
+JavaScript
+</span>
 
-                </div>
+<span class="project-tag">
+Database
+</span>
 
+</div>
 
-                <div class="project-bottom">
+</div>
 
-                    <a
-                        href="https://github.com/ManikandanMani4/FuturePath_Career"
-                        target="_blank"
-                        class="project-btn github">
+<div class="project-actions">
 
-                        GitHub ↗
+<a
+href="https://github.com/ManikandanMani4/SmartStock"
+target="_blank"
+class="project-btn code-btn">
 
-                    </a>
+View Code ↗
 
-                    <a
-                        href="https://futurepath-career.web.app/"
-                        target="_blank"
-                        class="project-btn live">
+</a>
 
-                        Live Demo ↗
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                    </a>
+Go Live
 
-                </div>
+</a>
 
-            </article>
+</div>
 
+</article>
 
 
-            <!-- 03 -->
 
-            <article
-                class="project reveal"
-                data-category="web management">
+<!-- 04 -->
 
-                <div>
+<article
+class="glass project reveal"
+data-category="ai mobile">
 
-                    <div class="project-top">
+<div>
 
-                        <span class="project-number">
-                            03
-                        </span>
+<div class="project-number">
+04
+</div>
 
-                        <span class="project-type">
-                            Inventory
-                        </span>
+<h3>
+AgroTech
+</h3>
 
-                    </div>
+<p>
+Individual smart agriculture application
+providing agricultural information and farmer support.
+</p>
 
+<div class="project-tags">
 
-                    <h3>
-                        SmartStock
-                    </h3>
+<span class="project-tag">
+Flutter
+</span>
 
+<span class="project-tag">
+AI
+</span>
 
-                    <p>
+<span class="project-tag">
+Agriculture
+</span>
 
-                        Inventory management application for
-                        managing products, stock information
-                        and inventory operations.
+</div>
 
-                    </p>
+</div>
 
+<div class="project-actions">
 
-                    <div class="project-tech">
+<a
+href="https://github.com/ManikandanMani4/Agro_Tech"
+target="_blank"
+class="project-btn code-btn">
 
-                        <span class="tech">
-                            React
-                        </span>
+View Code ↗
 
-                        <span class="tech">
-                            JavaScript
-                        </span>
+</a>
 
-                        <span class="tech">
-                            Database
-                        </span>
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                    </div>
+Go Live
 
-                </div>
+</a>
 
+</div>
 
-                <div class="project-bottom">
+</article>
 
-                    <a
-                        href="https://github.com/ManikandanMani4/SmartStock"
-                        target="_blank"
-                        class="project-btn github">
 
-                        GitHub ↗
 
-                    </a>
+<!-- 05 -->
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
+<article
+class="glass project reveal"
+data-category="ai web">
 
-                        Live Demo
+<div>
 
-                    </a>
+<div class="project-number">
+05
+</div>
 
-                </div>
+<h3>
+NL-SQL Query Builder
+</h3>
 
-            </article>
+<p>
+Converts natural language questions into
+SQL queries for easier database interaction.
+</p>
 
+<div class="project-tags">
 
+<span class="project-tag">
+NLP
+</span>
 
-            <!-- 04 -->
+<span class="project-tag">
+SQL
+</span>
 
-            <article
-                class="project reveal"
-                data-category="ai mobile">
+<span class="project-tag">
+AI
+</span>
 
-                <div>
+</div>
 
-                    <div class="project-top">
+</div>
 
-                        <span class="project-number">
-                            04
-                        </span>
+<div class="project-actions">
 
-                        <span class="project-type">
-                            Agriculture
-                        </span>
+<a
+href="https://github.com/ManikandanMani4/NL-SQL-Query-Builder"
+target="_blank"
+class="project-btn code-btn">
 
-                    </div>
+View Code ↗
 
+</a>
 
-                    <h3>
-                        AgroTech
-                    </h3>
+<a
+href="#"
+class="project-btn live-btn disabled">
 
+Go Live
 
-                    <p>
+</a>
 
-                        Smart agriculture application providing
-                        farmers with agricultural information,
-                        crop support and technology-driven
-                        farming solutions.
+</div>
 
-                    </p>
+</article>
 
 
-                    <div class="project-tech">
 
-                        <span class="tech">
-                            Flutter
-                        </span>
+<!-- 06 -->
 
-                        <span class="tech">
-                            AI
-                        </span>
+<article
+class="glass project reveal"
+data-category="web management">
 
-                        <span class="tech">
-                            Agriculture
-                        </span>
+<div>
 
-                    </div>
+<div class="project-number">
+06
+</div>
 
-                </div>
+<h3>
+Movie Ticket Booking Management
+</h3>
 
+<p>
+Movie ticket booking system for movie
+information, bookings and customer interactions.
+</p>
 
-                <div class="project-bottom">
+<div class="project-tags">
 
-                    <a
-                        href="https://github.com/ManikandanMani4/Agro_Tech"
-                        target="_blank"
-                        class="project-btn github">
+<span class="project-tag">
+Web
+</span>
 
-                        GitHub ↗
+<span class="project-tag">
+Booking
+</span>
 
-                    </a>
+<span class="project-tag">
+Database
+</span>
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
+</div>
 
-                        Live Demo
+</div>
 
-                    </a>
+<div class="project-actions">
 
-                </div>
+<a
+href="https://github.com/ManikandanMani4/Pega-Project-Movie_Ticket_Booking_Management"
+target="_blank"
+class="project-btn code-btn">
 
-            </article>
+View Code ↗
 
+</a>
 
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-            <!-- 05 -->
+Go Live
 
-            <article
-                class="project reveal"
-                data-category="ai web">
+</a>
 
-                <div>
+</div>
 
-                    <div class="project-top">
+</article>
 
-                        <span class="project-number">
-                            05
-                        </span>
 
-                        <span class="project-type">
-                            AI / Database
-                        </span>
 
-                    </div>
+<!-- 07 -->
 
+<article
+class="glass project reveal"
+data-category="web management">
 
-                    <h3>
-                        NL-SQL Query Builder
-                    </h3>
+<div>
 
+<div class="project-number">
+07
+</div>
 
-                    <p>
+<h3>
+FutureVault
+</h3>
 
-                        Converts natural language questions
-                        into SQL queries, making database
-                        interaction easier for users.
+<p>
+Secure digital platform for organized
+storage and management of information.
+</p>
 
-                    </p>
+<div class="project-tags">
 
+<span class="project-tag">
+Web
+</span>
 
-                    <div class="project-tech">
+<span class="project-tag">
+Security
+</span>
 
-                        <span class="tech">
-                            NLP
-                        </span>
+<span class="project-tag">
+Database
+</span>
 
-                        <span class="tech">
-                            SQL
-                        </span>
+</div>
 
-                        <span class="tech">
-                            AI
-                        </span>
+</div>
 
-                    </div>
+<div class="project-actions">
 
-                </div>
+<a
+href="https://github.com/ManikandanMani4/FutureVault"
+target="_blank"
+class="project-btn code-btn">
 
+View Code ↗
 
-                <div class="project-bottom">
+</a>
 
-                    <a
-                        href="https://github.com/ManikandanMani4/NL-SQL-Query-Builder"
-                        target="_blank"
-                        class="project-btn github">
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                        GitHub ↗
+Go Live
 
-                    </a>
+</a>
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
+</div>
 
-                        Live Demo
+</article>
 
-                    </a>
 
-                </div>
 
-            </article>
+<!-- 08 -->
 
+<article
+class="glass project reveal"
+data-category="web">
 
+<div>
 
-            <!-- 06 -->
+<div class="project-number">
+08
+</div>
 
-            <article
-                class="project reveal"
-                data-category="web management">
+<h3>
+Smart Agricultural Market Price
+</h3>
 
-                <div>
+<p>
+Agricultural market platform providing
+commodity price and market information.
+</p>
 
-                    <div class="project-top">
+<div class="project-tags">
 
-                        <span class="project-number">
-                            06
-                        </span>
+<span class="project-tag">
+Web
+</span>
 
-                        <span class="project-type">
-                            Booking
-                        </span>
+<span class="project-tag">
+API
+</span>
 
-                    </div>
+<span class="project-tag">
+Agriculture
+</span>
 
+</div>
 
-                    <h3>
-                        Movie Ticket Booking Management
-                    </h3>
+</div>
 
+<div class="project-actions">
 
-                    <p>
+<a
+href="https://github.com/ManikandanMani4/Smart-Agricultural-Market-Price-Platform"
+target="_blank"
+class="project-btn code-btn">
 
-                        Movie ticket booking and management
-                        system designed to handle movies,
-                        bookings and customer interactions.
+View Code ↗
 
-                    </p>
+</a>
 
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                    <div class="project-tech">
+Go Live
 
-                        <span class="tech">
-                            Web
-                        </span>
+</a>
 
-                        <span class="tech">
-                            Database
-                        </span>
+</div>
 
-                        <span class="tech">
-                            Booking
-                        </span>
+</article>
 
-                    </div>
 
-                </div>
 
+<!-- 09 -->
 
-                <div class="project-bottom">
+<article
+class="glass project reveal"
+data-category="ai mobile">
 
-                    <a
-                        href="https://github.com/ManikandanMani4/Pega-Project-Movie_Ticket_Booking_Management"
-                        target="_blank"
-                        class="project-btn github">
+<div>
 
-                        GitHub ↗
+<div class="project-number">
+09
+</div>
 
-                    </a>
+<h3>
+Smart Classroom
+</h3>
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
+<p>
+Student monitoring and attendance system
+using face recognition technology.
+</p>
 
-                        Live Demo
+<div class="project-tags">
 
-                    </a>
+<span class="project-tag">
+AI
+</span>
 
-                </div>
+<span class="project-tag">
+Face Recognition
+</span>
 
-            </article>
+<span class="project-tag">
+Attendance
+</span>
 
+</div>
 
+</div>
 
-            <!-- 07 -->
+<div class="project-actions">
 
-            <article
-                class="project reveal"
-                data-category="web management">
+<a
+href="https://github.com/ManikandanMani4/Smart-Classroom-Student-Monitoring-Attendance-System"
+target="_blank"
+class="project-btn code-btn">
 
-                <div>
+View Code ↗
 
-                    <div class="project-top">
+</a>
 
-                        <span class="project-number">
-                            07
-                        </span>
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                        <span class="project-type">
-                            Security
-                        </span>
+Go Live
 
-                    </div>
+</a>
 
+</div>
 
-                    <h3>
-                        FutureVault
-                    </h3>
+</article>
 
 
-                    <p>
 
-                        Digital platform focused on secure
-                        storage and organized management
-                        of important information and data.
+<!-- 10 -->
 
-                    </p>
+<article
+class="glass project reveal"
+data-category="web mobile">
 
+<div>
 
-                    <div class="project-tech">
+<div class="project-number">
+10
+</div>
 
-                        <span class="tech">
-                            Web
-                        </span>
+<h3>
+EducationGuide
+</h3>
 
-                        <span class="tech">
-                            Security
-                        </span>
+<p>
+Student learning and educational guidance
+platform for academic resources and opportunities.
+</p>
 
-                        <span class="tech">
-                            Database
-                        </span>
+<div class="project-tags">
 
-                    </div>
+<span class="project-tag">
+Web
+</span>
 
-                </div>
+<span class="project-tag">
+Education
+</span>
 
+<span class="project-tag">
+Platform
+</span>
 
-                <div class="project-bottom">
+</div>
 
-                    <a
-                        href="https://github.com/ManikandanMani4/FutureVault"
-                        target="_blank"
-                        class="project-btn github">
+</div>
 
-                        GitHub ↗
+<div class="project-actions">
 
-                    </a>
+<a
+href="https://github.com/ManikandanMani4/EducationGuide"
+target="_blank"
+class="project-btn code-btn">
 
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
+View Code ↗
 
-                        Live Demo
+</a>
 
-                    </a>
+<a
+href="#"
+class="project-btn live-btn disabled">
 
-                </div>
+Go Live
 
-            </article>
+</a>
 
+</div>
 
+</article>
 
-            <!-- 08 -->
 
-            <article
-                class="project reveal"
-                data-category="web">
+</div>
 
-                <div>
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            08
-                        </span>
-
-                        <span class="project-type">
-                            Agriculture
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        Smart Agricultural Market Price Platform
-                    </h3>
-
-
-                    <p>
-
-                        Platform designed to provide
-                        agricultural market information
-                        and commodity price insights.
-
-                    </p>
-
-
-                    <div class="project-tech">
-
-                        <span class="tech">
-                            Web
-                        </span>
-
-                        <span class="tech">
-                            API
-                        </span>
-
-                        <span class="tech">
-                            Agriculture
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <a
-                        href="https://github.com/ManikandanMani4/Smart-Agricultural-Market-Price-Platform"
-                        target="_blank"
-                        class="project-btn github">
-
-                        GitHub ↗
-
-                    </a>
-
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
-
-                        Live Demo
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- 09 -->
-
-            <article
-                class="project reveal"
-                data-category="ai mobile">
-
-                <div>
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            09
-                        </span>
-
-                        <span class="project-type">
-                            Smart Classroom
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        Smart Classroom Student Monitoring
-                        & Attendance System
-                    </h3>
-
-
-                    <p>
-
-                        Smart classroom system designed
-                        for student monitoring and automated
-                        attendance using face recognition.
-
-                    </p>
-
-
-                    <div class="project-tech">
-
-                        <span class="tech">
-                            AI
-                        </span>
-
-                        <span class="tech">
-                            Face Recognition
-                        </span>
-
-                        <span class="tech">
-                            Attendance
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <a
-                        href="https://github.com/ManikandanMani4/Smart-Classroom-Student-Monitoring-Attendance-System"
-                        target="_blank"
-                        class="project-btn github">
-
-                        GitHub ↗
-
-                    </a>
-
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
-
-                        Live Demo
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- 10 -->
-
-            <article
-                class="project reveal"
-                data-category="web mobile">
-
-                <div>
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            10
-                        </span>
-
-                        <span class="project-type">
-                            Education
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        EducationGuide
-                    </h3>
-
-
-                    <p>
-
-                        Educational guidance platform designed
-                        to help students explore learning resources,
-                        opportunities and academic pathways.
-
-                    </p>
-
-
-                    <div class="project-tech">
-
-                        <span class="tech">
-                            Web
-                        </span>
-
-                        <span class="tech">
-                            Education
-                        </span>
-
-                        <span class="tech">
-                            Platform
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project-bottom">
-
-                    <a
-                        href="https://github.com/ManikandanMani4/EducationGuide"
-                        target="_blank"
-                        class="project-btn github">
-
-                        GitHub ↗
-
-                    </a>
-
-                    <a
-                        href="#"
-                        class="project-btn live disabled">
-
-                        Live Demo
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      JOURNEY
-===================================================== -->
+========================================================= -->
 
-<section
-    id="journey"
-    class="section">
+<section id="journey" class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="section-header reveal">
+<div class="section-head reveal">
 
-            <div class="section-label">
-                Journey
-            </div>
+<div class="label">
+JOURNEY
+</div>
 
-            <h2 class="section-title">
-                My learning journey.
-            </h2>
+<h2 class="section-title">
+My Learning Journey
+</h2>
 
-        </div>
-
-
-        <div class="timeline">
+</div>
 
 
-            <div class="timeline-item reveal">
+<div class="journey reveal">
 
-                <h3>
-                    Information Technology
-                </h3>
-
-                <span>
-                    B.Tech IT
-                </span>
-
-                <p>
-
-                    Building a strong foundation in
-                    programming, data structures,
-                    databases and software development.
-
-                </p>
-
-            </div>
+<div class="journey-line"></div>
 
 
-            <div class="timeline-item reveal">
+<div class="journey-item">
 
-                <h3>
-                    Application Development
-                </h3>
+<div class="journey-circle">
+🎓
+</div>
 
-                <span>
-                    Flutter • Web • Backend
-                </span>
+<div>
 
-                <p>
+<h3>
+IT Education
+</h3>
 
-                    Developing mobile and web applications
-                    while learning APIs, authentication
-                    and database integration.
+<p>
+Foundation in programming
+and core concepts
+</p>
 
-                </p>
+</div>
 
-            </div>
-
-
-            <div class="timeline-item reveal">
-
-                <h3>
-                    Artificial Intelligence
-                </h3>
-
-                <span>
-                    AI • ML • Generative AI
-                </span>
-
-                <p>
-
-                    Exploring machine learning,
-                    AI applications, natural language
-                    processing and generative AI.
-
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="timeline-item reveal">
+<div class="journey-item">
 
-                <h3>
-                    Cloud & Architecture
-                </h3>
+<div class="journey-circle">
+&lt;/&gt;
+</div>
 
-                <span>
-                    AWS • Cloud • Scalable Systems
-                </span>
+<div>
 
-                <p>
+<h3>
+Application Development
+</h3>
 
-                    Continuing toward the goal of designing
-                    scalable cloud-based intelligent systems.
+<p>
+Web, mobile and backend
+development
+</p>
 
-                </p>
+</div>
 
-            </div>
+</div>
 
 
-        </div>
+<div class="journey-item">
 
-    </div>
+<div class="journey-circle">
+🧠
+</div>
+
+<div>
+
+<h3>
+Artificial Intelligence
+</h3>
+
+<p>
+ML, NLP and Generative AI
+</p>
+
+</div>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-circle">
+☁
+</div>
+
+<div>
+
+<h3>
+Cloud Computing
+</h3>
+
+<p>
+AWS, Azure and Google Cloud
+</p>
+
+</div>
+
+</div>
+
+
+<div class="journey-item">
+
+<div class="journey-circle">
+🏆
+</div>
+
+<div>
+
+<h3>
+Future Goal
+</h3>
+
+<p>
+AI & Cloud Architect
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-===================================================== -->
+========================================================= -->
 
-<section
-    id="contact"
-    class="section">
+<section id="contact" class="section">
 
-    <div class="container">
+<div class="container">
 
 
-        <div class="section-header reveal">
+<div class="section-head reveal">
 
-            <div class="section-label">
-                Contact
-            </div>
+<div class="label">
+CONTACT
+</div>
 
-            <h2 class="section-title">
-                Let's connect.
-            </h2>
+<h2 class="section-title">
+Let's Connect
+</h2>
 
-        </div>
+<p class="section-description">
+Have a project, opportunity or idea?
+Feel free to reach out.
+</p>
 
-
-        <div class="contact-box reveal">
-
-
-            <div class="contact-info">
-
-                <h3>
-                    Have a project or opportunity?
-                </h3>
-
-                <p>
-
-                    Feel free to reach out. I'm always
-                    interested in learning, building and
-                    connecting with people in technology.
-
-                </p>
+</div>
 
 
-                <a href="mailto:your-email@gmail.com">
-
-                    ✉ your-email@gmail.com
-
-                </a>
+<div class="glass contact reveal">
 
 
-                <a
-                    href="https://github.com/ManikandanMani4"
-                    target="_blank">
+<div class="contact-info">
 
-                    GitHub ↗
+<h3>
+Let's build something.
+</h3>
 
-                </a>
+<p>
 
+I'm interested in learning,
+building projects and connecting
+with people in technology.
 
-                <a
-                    href="https://www.linkedin.com/in/manikandanmani456/"
-                    target="_blank">
-
-                    LinkedIn ↗
-
-                </a>
-
-            </div>
+</p>
 
 
+<a
+href="mailto:YOUR_EMAIL@gmail.com"
+class="contact-link">
 
-            <form
-                class="contact-form"
-                action="https://formspree.io/f/xjgjrjrl"
-                method="POST">
+✉ YOUR_EMAIL@gmail.com
 
-
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required>
+</a>
 
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    required>
+<a
+href="https://github.com/ManikandanMani4"
+target="_blank"
+class="contact-link">
+
+◉ github.com/ManikandanMani4
+
+</a>
 
 
-                <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    required>
-                </textarea>
+<a
+href="https://www.linkedin.com/in/manikandanmani456/"
+target="_blank"
+class="contact-link">
+
+in linkedin.com/in/manikandanmani456
+
+</a>
+
+</div>
 
 
-                <button
-                    type="submit"
-                    class="btn btn-primary">
 
-                    Send Message
-
-                </button>
+<form
+class="form"
+action="https://formspree.io/f/xjgjrjrl"
+method="POST">
 
 
-            </form>
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required
+>
 
 
-        </div>
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+>
 
-    </div>
+
+<textarea
+name="message"
+placeholder="Your Message"
+required
+></textarea>
+
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Send Message →
+
+</button>
+
+
+</form>
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -2773,30 +3513,27 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
-    <div class="container">
+<div class="container">
 
-        © 2026 Manikandan Mani.
-        Built with HTML, CSS & JavaScript.
+© 2026 Manikandan Mani.
+All Rights Reserved.
 
-    </div>
+</div>
 
 </footer>
 
 
-
-<!-- BACK TO TOP -->
-
 <button
-    id="topBtn"
-    aria-label="Back to top">
+class="top"
+id="topBtn">
 
-    ↑
+↑
 
 </button>
 
@@ -2804,240 +3541,225 @@
 
 <script>
 
-    /* =====================================================
-       MOBILE MENU
-    ===================================================== */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    const menuBtn =
-        document.getElementById("menuBtn");
+const menu =
+document.getElementById("menu");
 
-    const nav =
-        document.getElementById("nav");
+const navigation =
+document.getElementById("navigation");
+
+menu.addEventListener(
+"click",
+()=>{
+
+    navigation.classList.toggle("open");
+
+}
+);
 
 
-    menuBtn.addEventListener(
-        "click",
-        () => {
+navigation
+.querySelectorAll("a")
+.forEach(link=>{
 
-            nav.classList.toggle("open");
+    link.addEventListener(
+    "click",
+    ()=>{
 
-        }
-    );
+        navigation.classList.remove("open");
+
+    });
+
+});
 
 
-    /* Close mobile menu */
+/* =========================================================
+   PROJECT FILTER
+========================================================= */
 
-    nav.querySelectorAll("a").forEach(link => {
+const filters =
+document.querySelectorAll(".filter");
 
-        link.addEventListener(
-            "click",
-            () => {
+const projects =
+document.querySelectorAll(".project");
 
-                nav.classList.remove("open");
+
+filters.forEach(filter=>{
+
+    filter.addEventListener(
+    "click",
+    ()=>{
+
+        filters.forEach(f=>
+            f.classList.remove("active")
+        );
+
+        filter.classList.add("active");
+
+        const category =
+            filter.dataset.filter;
+
+
+        projects.forEach(project=>{
+
+            const categories =
+                project.dataset.category
+                .split(" ");
+
+
+            if(
+                category === "all" ||
+                categories.includes(category)
+            ){
+
+                project.style.display="flex";
+
+            }else{
+
+                project.style.display="none";
 
             }
-        );
+
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+reveals.forEach(element=>{
+    observer.observe(element);
+});
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+const sections =
+document.querySelectorAll("section[id]");
+
+const navLinks =
+document.querySelectorAll("nav a");
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+    let current="";
+
+
+    sections.forEach(section=>{
+
+        const top =
+            section.offsetTop - 180;
+
+
+        if(
+            window.scrollY >= top
+        ){
+
+            current =
+                section.id;
+
+        }
 
     });
 
 
+    navLinks.forEach(link=>{
 
-    /* =====================================================
-       PROJECT FILTER
-    ===================================================== */
-
-    const filterButtons =
-        document.querySelectorAll(".filter-btn");
-
-    const projects =
-        document.querySelectorAll(".project");
+        link.classList.remove("active");
 
 
-    filterButtons.forEach(button => {
+        if(
+            link.getAttribute("href")
+            ===
+            "#" + current
+        ){
 
-        button.addEventListener(
-            "click",
-            () => {
+            link.classList.add("active");
 
-                filterButtons.forEach(btn => {
-
-                    btn.classList.remove("active");
-
-                });
-
-                button.classList.add("active");
-
-
-                const filter =
-                    button.dataset.filter;
-
-
-                projects.forEach(project => {
-
-                    const categories =
-                        project.dataset.category;
-
-
-                    if (
-                        filter === "all" ||
-                        categories.includes(filter)
-                    ) {
-
-                        project.style.display =
-                            "flex";
-
-                    } else {
-
-                        project.style.display =
-                            "none";
-
-                    }
-
-                });
-
-            }
-        );
+        }
 
     });
 
+});
 
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
+/* =========================================================
+   BACK TO TOP
+========================================================= */
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
+const topBtn =
+document.getElementById("topBtn");
 
 
-    revealElements.forEach(element => {
+window.addEventListener(
+"scroll",
+()=>{
 
-        observer.observe(element);
+    if(window.scrollY > 500){
+
+        topBtn.classList.add("show");
+
+    }else{
+
+        topBtn.classList.remove("show");
+
+    }
+
+});
+
+
+topBtn.addEventListener(
+"click",
+()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
 
     });
 
+});
 
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
-    const sections =
-        document.querySelectorAll("section[id]");
-
-    const navLinks =
-        document.querySelectorAll("nav a");
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            let current = "";
-
-
-            sections.forEach(section => {
-
-                const sectionTop =
-                    section.offsetTop - 140;
-
-                if (
-                    window.scrollY >= sectionTop
-                ) {
-
-                    current =
-                        section.getAttribute("id");
-
-                }
-
-            });
-
-
-            navLinks.forEach(link => {
-
-                link.classList.remove("active");
-
-
-                if (
-                    link.getAttribute("href") ===
-                    "#" + current
-                ) {
-
-                    link.classList.add("active");
-
-                }
-
-            });
-
-        }
-    );
-
-
-
-    /* =====================================================
-       BACK TO TOP
-    ===================================================== */
-
-    const topBtn =
-        document.getElementById("topBtn");
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (window.scrollY > 500) {
-
-                topBtn.classList.add("show");
-
-            } else {
-
-                topBtn.classList.remove("show");
-
-            }
-
-        }
-    );
-
-
-    topBtn.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
 
 </script>
 
